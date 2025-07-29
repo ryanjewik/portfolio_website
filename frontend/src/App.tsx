@@ -15,6 +15,7 @@ import { useState, useEffect } from 'react';
 function App() {
   // Dark mode state - shared between App and FloatingNav
   const [isDarkMode, setIsDarkMode] = useState(true);
+  const [japaneseToggle, setJapaneseToggle] = useState(false);
 
   // Apply dark mode to document root
   useEffect(() => {
@@ -35,59 +36,56 @@ function App() {
   const projects = [
     {
       id: 1,
-      title: "Project One",
-      description: "A full-stack web application built with React and Node.js. Features include user authentication, real-time updates, and responsive design.",
-      icon: (
-        <svg className="w-20 h-20 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
-        </svg>
-      ),
-      badge: "Live"
+      title: japaneseToggle ? "Sabine - RAGチャットボット" : "Sabine - RAG Chatbot",
+      description: japaneseToggle 
+        ? "Valorant eスポーツの洞察と分析を提供するフルスタックRAGチャットボットアプリケーション。チームパフォーマンス分析、プレイヤー統計、機械学習を使用した試合予測を特徴としています。"
+        : "A full-stack RAG chatbot application that provides insights and analytics for Valorant esports. Features team performance analysis, player statistics, and match predictions using machine learning.",
+      image: "/assets/sabine.PNG",
+      badge: "Live",
+      url: "https://github.com/ryanjewik/sabine",
+      liveUrl: "https://sabinechat.com/homepage"
     },
     {
       id: 2,
-      title: "Mobile App",
-      description: "A React Native mobile application with cross-platform compatibility. Includes push notifications, offline support, and smooth animations.",
-      icon: (
-        <svg className="w-20 h-20 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z" />
-        </svg>
-      ),
-      badge: "Demo"
+      title: japaneseToggle ? "PokeTask - ポケモンタスクアプリ" : "PokeTask - Pokemon Task App",
+      description: japaneseToggle
+        ? "ポケモン風バトルシステムを特徴とするFlutterモバイルタスクアプリケーション。ユーザーはタスクを管理しながら、AIの対戦相手とバトルするポケモンを収集できます。"
+        : "A Flutter mobile task application featuring a Pokemon-style battle system. Users can manage their tasks while collecting Pokemon to battle with an AI opponent.",
+      image: "/assets/poketask.PNG",
+      badge: "Download",
+      url: "https://github.com/ryanjewik/poketask",
+      downloadUrl: "https://github.com/ryanjewik/poketask/releases/download/v1.1.2/app-release.apk"
     },
     {
       id: 3,
-      title: "Data Analytics Dashboard",
-      description: "An interactive dashboard for data visualization using D3.js and Chart.js. Features real-time data updates and customizable charts.",
-      icon: (
-        <svg className="w-20 h-20 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
-        </svg>
-      ),
-      badge: "Beta"
+      title: japaneseToggle ? "TUJモバイルアプリ" : "TUJ Mobile App",
+      description: japaneseToggle
+        ? "テンプル大学ジャパンでの留学中に開発されたモバイルアプリケーション。他の学生や卒業生との交流、投稿、プロジェクト、インターンシップの共有などのコミュニティ機能を備えています。"
+        : "A mobile application developed during my study abroad at Temple University Japan. Features community features like connecting with other students & alumni, and sharing posts, projects, and internships.",
+      image: "/assets/tuj_mobile_app.png",
+      badge: "Demo",
+      url: "https://github.com/ktsu2i/tuj-cs-app"
     },
     {
       id: 4,
-      title: "API Development",
-      description: "RESTful API built with Express.js and MongoDB. Includes authentication, rate limiting, and comprehensive documentation.",
-      icon: (
-        <svg className="w-20 h-20 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
-        </svg>
-      ),
-      badge: "API"
+      title: japaneseToggle ? "クライミングコミュニティウェブサイト" : "Climbing Community Website",
+      description: japaneseToggle
+        ? "HTML、CSS、Python、MySQLで構築されたレスポンシブクライミングコミュニティウェブサイト。クライマーがクライミングルートを見つけ、共有し、評価でき、スキルレベルに基づいたレコメンデーションシステムも備えたアプリ。"
+        : "This responsive climbing community website built with HTML, CSS, Python, and MySQL. An app that allows climbers to find, share, and rate climbs they have climbed on and even has a recommendation system for the climbs based on skill level.",
+      image: "/assets/mysql.png",
+      badge: "Demo",
+      url: "https://github.com/ryanjewik/Climb_App"
     },
-    // {
-    //   id: 5,
-    //   title: "E-commerce Platform",
-    //   description: "A complete e-commerce solution with payment integration, inventory management, and admin dashboard.",
-    //   icon: (
-    //     <svg className="w-20 h-20 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-    //       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
-    //     </svg>
-    //   ),
-    //   badge: "Shop"
-    // }
+    {
+      id: 5,
+      title: japaneseToggle ? "アプリストアレビュー感情分析" : "App Store Review Sentiment Analysis",
+      description: japaneseToggle
+        ? "モバイルアプリのユーザーレビューを分析し、競合アプリと比較し、スパイダーグラフで可視化するフルスタック感情分析アプリケーション。"
+        : "An full stack sentiment analysis application that analyzes user reviews for mobile apps and compares them to competing apps, visualized in spider graphs.",
+      image: "/assets/python.png",
+      badge: "Demo",
+      url: "https://github.com/ryanjewik/MGSC_final"
+    }
   ];
 
   const isEvenNumberOfProjects = projects.length % 2 === 0;
@@ -115,14 +113,16 @@ function App() {
       {/* Content Sections - All positioned relative with proper z-index */}
       <FloatingNav 
         navItems={[
-          { name: 'Introduction', link: '#introduction', icon: <i className="fas fa-home"></i> },
-          { name: 'About Me', link: '#about', icon: <i className="fas fa-user"></i> },
-          { name: 'Tech Stack', link: '#techstack', icon: <i className="fas fa-code"></i> },
-          { name: 'Projects', link: '#projects', icon: <i className="fas fa-folder"></i> },
-          { name: 'Contact', link: '#contact', icon: <i className="fas fa-envelope"></i> }
+          { name: japaneseToggle ? 'はじめに' : 'Introduction', link: '#introduction', icon: <i className="fas fa-home"></i> },
+          { name: japaneseToggle ? '自己紹介' : 'About Me', link: '#about', icon: <i className="fas fa-user"></i> },
+          { name: japaneseToggle ? '技術スタック' : 'Tech Stack', link: '#techstack', icon: <i className="fas fa-code"></i> },
+          { name: japaneseToggle ? 'プロジェクト' : 'Projects', link: '#projects', icon: <i className="fas fa-folder"></i> },
+          { name: japaneseToggle ? 'お問い合わせ' : 'Contact', link: '#contact', icon: <i className="fas fa-envelope"></i> }
         ]}
         isDarkMode={isDarkMode}
         setIsDarkMode={setIsDarkMode}
+        japaneseToggle={japaneseToggle}
+        setJapaneseToggle={setJapaneseToggle}
         className="fixed bottom-4 right-4 z-50"
       />
 
@@ -160,7 +160,7 @@ function App() {
               delay: 0.6
             }}
           >
-            Welcome to My Portfolio
+            {japaneseToggle ? 'ポートフォリオへようこそ' : 'Welcome to My Portfolio'}
           </motion.h1>
           <motion.p 
             className="text-lg"
@@ -177,7 +177,7 @@ function App() {
               delay: 0.9
             }}
           >
-            Fullstack AI Developer Ryan Hideo Jewik
+            {japaneseToggle ? 'フルスタックAI開発者 ライアン・ヒデオ・ジューイック' : 'Fullstack AI Developer Ryan Hideo Jewik'}
           </motion.p>
         </motion.div>
       </div>
@@ -187,10 +187,11 @@ function App() {
         {/* Profile Card Container - Takes fixed width, positioned relative to content */}
         <div className="w-[32rem] flex-shrink-0">
           <FloatingProfileCard
-            name="Ryan Hideo Jewik"
+            name={japaneseToggle ? "ライアン・英雄・ジューイック" : "Ryan Hideo Jewik"}
             title="Full Stack AI Developer"
             location="Atascadero, CA"
             isDarkMode={isDarkMode}
+            japaneseToggle={japaneseToggle}
             socialLinks={[
               {
                 name: "GitHub",
@@ -249,7 +250,7 @@ function App() {
                   className="text-4xl font-bold text-gray-900 dark:text-white mb-4"
                   style={{ color: isDarkMode ? 'white' : '#1f2937' }} // Force text color
                 >
-                  About Me
+                  {japaneseToggle ? '自己紹介' : 'About Me'}
                 </h2>
                 <div 
                   className="w-24 h-1 mx-auto rounded-full"
@@ -307,13 +308,16 @@ function App() {
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
                         </svg>
                       </div>
-                      Quick Bio
+                      {japaneseToggle ? '簡単な自己紹介' : 'Quick Bio'}
                     </h3>
                     <p 
                       className="text-2xl text-gray-600 dark:text-gray-300 leading-relaxed"
                       style={{ color: isDarkMode ? '#d1d5db' : '#374151' }} // Darker text for light mode
                     >
-                      With backgrounds in both computer science and data science, I specialize in building full-stack applications that leverage AI technologies. My passion lies in creating innovative solutions that enhance user experiences and drive business value.
+                      {japaneseToggle 
+                        ? 'コンピューターサイエンスとデータサイエンスの両方の背景を持ち、AI技術を活用したフルスタックアプリケーションの構築を専門としています。ユーザーエクスペリエンスを向上させ、ビジネス価値を促進する革新的なソリューションの創造に情熱を注いでいます。'
+                        : 'With backgrounds in both computer science and data science, I specialize in building full-stack applications that leverage AI technologies. My passion lies in creating innovative solutions that enhance user experiences and drive business value.'
+                      }
                     </p>
                   </div>
                   
@@ -354,7 +358,7 @@ function App() {
                         className="text-2xl font-semibold text-gray-900 dark:text-white"
                         style={{ color: isDarkMode ? 'white' : '#111827' }} // Darker text for light mode
                       >
-                        Education
+                        {japaneseToggle ? '学歴' : 'Education'}
                       </h3>
                     </div>
                     
@@ -367,25 +371,28 @@ function App() {
                             className="text-xl font-semibold text-gray-900 dark:text-white text-left"
                             style={{ color: isDarkMode ? 'white' : '#111827' }}
                           >
-                            Bachelor's Degree
+                            {japaneseToggle ? '学士号' : "Bachelor's Degree"}
                           </h4>
                           <p 
                             className="text-blue-600 dark:text-blue-400 font-medium text-left"
                             style={{ color: isDarkMode ? '#60a5fa' : '#2563eb' }}
                           >
-                            Computer Science
+                            {japaneseToggle ? 'コンピューターサイエンス' : 'Computer Science'}
                           </p>
                           <p 
                             className="text-gray-600 dark:text-gray-400 text-left"
                             style={{ color: isDarkMode ? '#9ca3af' : '#4b5563' }}
                           >
-                            Chapman University • 2021-2025
+                            {japaneseToggle ? 'チャップマン大学 • 2021年-2025年' : 'Chapman University • 2021-2025'}
                           </p>
                           <p 
                             className="text-gray-500 dark:text-gray-400 mt-2 text-left"
                             style={{ color: isDarkMode ? '#9ca3af' : '#374151' }}
                           >
-                            Focused on software engineering, algorithms, and system design
+                            {japaneseToggle 
+                              ? 'ソフトウェア工学、アルゴリズム、システム設計に焦点を当てた学習'
+                              : 'Focused on software engineering, algorithms, and system design'
+                            }
                           </p>
                         </div>
                       </div>
@@ -396,25 +403,28 @@ function App() {
                             className="text-xl font-semibold text-gray-900 dark:text-white text-left"
                             style={{ color: isDarkMode ? 'white' : '#111827' }}
                           >
-                            Bachelor's Degree
+                            {japaneseToggle ? '学士号' : "Bachelor's Degree"}
                           </h4>
                           <p 
                             className="text-purple-600 dark:text-purple-400 font-medium text-left"
                             style={{ color: isDarkMode ? '#c084fc' : '#7c3aed' }}
                           >
-                            Data Science
+                            {japaneseToggle ? 'データサイエンス' : 'Data Science'}
                           </p>
                           <p 
                             className="text-gray-600 dark:text-gray-400 text-left"
                             style={{ color: isDarkMode ? '#9ca3af' : '#4b5563' }}
                           >
-                            Chapman University • 2021-2025
+                            {japaneseToggle ? 'チャップマン大学 • 2021年-2025年' : 'Chapman University • 2021-2025'}
                           </p>
                           <p 
                             className="text-gray-500 dark:text-gray-400 mt-2 text-left"
                             style={{ color: isDarkMode ? '#9ca3af' : '#374151' }}
                           >
-                            Specialized in machine learning, statistical analysis, and data visualization
+                            {japaneseToggle 
+                              ? '機械学習、統計分析、データ可視化を専門とした学習'
+                              : 'Specialized in machine learning, statistical analysis, and data visualization'
+                            }
                           </p>
                         </div>
                       </div>
@@ -425,25 +435,28 @@ function App() {
                             className="text-xl font-semibold text-gray-900 dark:text-white text-left"
                             style={{ color: isDarkMode ? 'white' : '#111827' }}
                           >
-                            Study Abroad
+                            {japaneseToggle ? '留学' : 'Study Abroad'}
                           </h4>
                           <p 
                             className="text-orange-600 dark:text-orange-400 font-medium text-left"
                             style={{ color: isDarkMode ? '#fb923c' : '#ea580c' }}
                           >
-                            Temple University Japan
+                            {japaneseToggle ? 'テンプル大学ジャパンキャンパス' : 'Temple University Japan'}
                           </p>
                           <p 
                             className="text-gray-600 dark:text-gray-400 text-left"
                             style={{ color: isDarkMode ? '#9ca3af' : '#4b5563' }}
                           >
-                            Tokyo, Japan • 2024
+                            {japaneseToggle ? '東京、日本 • 2024年' : 'Tokyo, Japan • 2024'}
                           </p>
                           <p 
                             className="text-gray-500 dark:text-gray-400 mt-2 text-left"
                             style={{ color: isDarkMode ? '#9ca3af' : '#374151' }}
                           >
-                            International academic experience with cross-cultural learning and global perspectives
+                            {japaneseToggle 
+                              ? '異文化学習とグローバルな視点を持つ国際的な学術体験'
+                              : 'International academic experience with cross-cultural learning and global perspectives'
+                            }
                           </p>
                         </div>
                       </div>
@@ -474,7 +487,7 @@ function App() {
                         className="text-2xl font-semibold text-gray-900 dark:text-white"
                         style={{ color: isDarkMode ? 'white' : '#111827' }} // Darker text for light mode
                       >
-                        Certifications
+                        {japaneseToggle ? '資格' : 'Certifications'}
                       </h3>
                     </div>
                     
@@ -490,26 +503,26 @@ function App() {
                             CompTIA Security+
                           </h4>
                           <span className="px-3 py-1 bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-300 rounded-full text-sm font-medium">
-                            Certified
+                            {japaneseToggle ? '認定済み' : 'Certified'}
                           </span>
                         </div>
                         <p 
                           className="text-green-600 dark:text-green-400 font-medium text-left"
                           style={{ color: isDarkMode ? '#4ade80' : '#059669' }}
                         >
-                          Cybersecurity Foundation
+                          {japaneseToggle ? 'サイバーセキュリティ基礎' : 'Cybersecurity Foundation'}
                         </p>
                         <p 
                           className="text-gray-600 dark:text-gray-400 text-left"
                           style={{ color: isDarkMode ? '#9ca3af' : '#4b5563' }}
                         >
-                          CompTIA • 2025
+                          {japaneseToggle ? 'CompTIA • 2025年' : 'CompTIA • 2025'}
                         </p>
                         <p 
                           className="text-gray-500 dark:text-gray-400 mt-2 text-left"
                           style={{ color: isDarkMode ? '#9ca3af' : '#374151' }}
                         >
-                          Validates cybersecurity skills including risk management, threat analysis, and incident response
+                          {japaneseToggle ? 'リスク管理、脅威分析、インシデント対応を含むサイバーセキュリティスキルを検証' : 'Validates cybersecurity skills including risk management, threat analysis, and incident response'}
                         </p>
                         <div className="flex items-center gap-2 mt-3">
                           <svg className="w-5 h-5 text-green-500" fill="currentColor" viewBox="0 0 20 20">
@@ -519,7 +532,7 @@ function App() {
                             className="text-sm text-gray-600 dark:text-gray-400"
                             style={{ color: isDarkMode ? '#9ca3af' : '#4b5563' }}
                           >
-                            DoD 8570 Approved
+                            {japaneseToggle ? 'DoD 8570 承認済み' : 'DoD 8570 Approved'}
                           </span>
                         </div>
                       </div>
@@ -552,7 +565,7 @@ function App() {
                         className="text-2xl font-semibold text-gray-900 dark:text-white"
                         style={{ color: isDarkMode ? 'white' : '#111827' }} // Darker text for light mode
                       >
-                        Experience
+                        {japaneseToggle ? '経験' : 'Experience'}
                       </h3>
                     </div>
                     
@@ -565,19 +578,19 @@ function App() {
                             className="text-xl font-semibold text-gray-900 dark:text-white text-left"
                             style={{ color: isDarkMode ? 'white' : '#111827' }}
                           >
-                            Data Science Intern
+                            {japaneseToggle ? 'データサイエンスインターン' : 'Data Science Intern'}
                           </h4>
                           <p 
                             className="text-orange-600 dark:text-orange-400 font-medium text-left"
                             style={{ color: isDarkMode ? '#fb923c' : '#ea580c' }}
                           >
-                            Chapman School of Pharmacy
+                            {japaneseToggle ? 'チャップマン薬学部' : 'Chapman School of Pharmacy'}
                           </p>
                           <p 
                             className="text-gray-600 dark:text-gray-400 text-left"
                             style={{ color: isDarkMode ? '#9ca3af' : '#4b5563' }}
                           >
-                            Sep 2024 - March 2025
+                            {japaneseToggle ? '2024年9月 - 2025年3月' : 'Sep 2024 - March 2025'}
                           </p>
                           <ul 
                             className="text-gray-500 dark:text-gray-400 mt-2 text-left space-y-1"
@@ -585,15 +598,15 @@ function App() {
                           >
                             <li className="flex items-start">
                               <span className="text-orange-500 mr-2 mt-1.5 text-xs">●</span>
-                              <span>Feature engineering, data wrangling, and cleaning on over 81 billion rows of health care data</span>
+                              <span>{japaneseToggle ? '810億行を超えるヘルスケアデータの特徴量エンジニアリング、データラングリング、クリーニング' : 'Feature engineering, data wrangling, and cleaning on over 81 billion rows of health care data'}</span>
                             </li>
                             <li className="flex items-start">
                               <span className="text-orange-500 mr-2 mt-1.5 text-xs">●</span>
-                              <span>Employed numerous oversampling and undersampling techniques such as KNN, RUS, SMOTE, and GMMs to solve class imbalance problem in data</span>
+                              <span>{japaneseToggle ? 'KNN、RUS、SMOTE、GMMsなどの多数のオーバーサンプリングおよびアンダーサンプリング技術を使用してデータのクラス不均衡問題を解決' : 'Employed numerous oversampling and undersampling techniques such as KNN, RUS, SMOTE, and GMMs to solve class imbalance problem in data'}</span>
                             </li>
                             <li className="flex items-start">
                               <span className="text-orange-500 mr-2 mt-1.5 text-xs">●</span>
-                              <span>Trained xgboost tree models to predict opioid related morbidity</span>
+                              <span>{japaneseToggle ? 'オピオイド関連の罹患率を予測するためのxgboostツリーモデルを訓練' : 'Trained xgboost tree models to predict opioid related morbidity'}</span>
                             </li>
                           </ul>
                         </div>
@@ -605,7 +618,7 @@ function App() {
                             className="text-xl font-semibold text-gray-900 dark:text-white text-left"
                             style={{ color: isDarkMode ? 'white' : '#111827' }}
                           >
-                            Software Engineering Research Assistant
+                            {japaneseToggle ? 'ソフトウェア工学研究アシスタント' : 'Software Engineering Research Assistant'}
                           </h4>
                           <p 
                             className="text-blue-600 dark:text-blue-400 font-medium text-left"
@@ -617,7 +630,7 @@ function App() {
                             className="text-gray-600 dark:text-gray-400 text-left"
                             style={{ color: isDarkMode ? '#9ca3af' : '#4b5563' }}
                           >
-                            Sep 2024 - May 2025
+                            {japaneseToggle ? '2024年9月 - 2025年5月' : 'Sep 2024 - May 2025'}
                           </p>
                           <ul 
                             className="text-gray-500 dark:text-gray-400 mt-2 text-left space-y-1"
@@ -625,15 +638,15 @@ function App() {
                           >
                             <li className="flex items-start">
                               <span className="text-blue-500 mr-2 mt-1.5 text-xs">●</span>
-                              <span>Scraped, cleaned, and performed feature selection on app store reviews</span>
+                              <span>{japaneseToggle ? 'アプリストアレビューのスクレイピング、クリーニング、特徴量選択を実行' : 'Scraped, cleaned, and performed feature selection on app store reviews'}</span>
                             </li>
                             <li className="flex items-start">
                               <span className="text-blue-500 mr-2 mt-1.5 text-xs">●</span>
-                              <span>Combined with IOS app data with Google Play Store Android data for preliminary analysis</span>
+                              <span>{japaneseToggle ? '予備分析のためにiOSアプリデータとGoogle Play StoreのAndroidデータを組み合わせ' : 'Combined with IOS app data with Google Play Store Android data for preliminary analysis'}</span>
                             </li>
                             <li className="flex items-start">
                               <span className="text-blue-500 mr-2 mt-1.5 text-xs">●</span>
-                              <span>Performed Sentiment Analysis on the combined data on Montessori Apps using Hugging Face</span>
+                              <span>{japaneseToggle ? 'Hugging Faceを使用してモンテッソーリアプリの統合データに対して感情分析を実行' : 'Performed Sentiment Analysis on the combined data on Montessori Apps using Hugging Face'}</span>
                             </li>
                           </ul>
                         </div>
@@ -645,7 +658,7 @@ function App() {
                             className="text-xl font-semibold text-gray-900 dark:text-white text-left"
                             style={{ color: isDarkMode ? 'white' : '#111827' }}
                           >
-                            Project Engineering Intern
+                            {japaneseToggle ? 'プロジェクト工学インターン' : 'Project Engineering Intern'}
                           </h4>
                           <p 
                             className="text-purple-600 dark:text-purple-400 font-medium text-left"
@@ -657,7 +670,7 @@ function App() {
                             className="text-gray-600 dark:text-gray-400 text-left"
                             style={{ color: isDarkMode ? '#9ca3af' : '#4b5563' }}
                           >
-                            May 2022 - August 2022
+                            {japaneseToggle ? '2022年5月 - 2022年8月' : 'May 2022 - August 2022'}
                           </p>
                           <ul 
                             className="text-gray-500 dark:text-gray-400 mt-2 text-left space-y-1"
@@ -671,7 +684,7 @@ function App() {
                               <span 
                                 style={{ color: isDarkMode ? '#9ca3af' : '#374151' }}
                               >
-                                Reviewed 40+ Request for Dispositions (RFDs) documents against customer contracts to determine eligibility for customer billing
+                                {japaneseToggle ? '顧客請求の適格性を決定するため、40以上のRFD（処分依頼）文書を顧客契約に対してレビュー' : 'Reviewed 40+ Request for Dispositions (RFDs) documents against customer contracts to determine eligibility for customer billing'}
                               </span>
                             </li>
                             <li className="flex items-start">
@@ -682,7 +695,7 @@ function App() {
                               <span 
                                 style={{ color: isDarkMode ? '#9ca3af' : '#374151' }}
                               >
-                                Administered Computer Software Components (CSCs) to address customer comments and integrate into deliver schedules
+                                {japaneseToggle ? '顧客コメントに対応し、配送スケジュールに統合するためのコンピューターソフトウェアコンポーネント（CSC）を管理' : 'Administered Computer Software Components (CSCs) to address customer comments and integrate into deliver schedules'}
                               </span>
                             </li>
                             <li className="flex items-start">
@@ -693,7 +706,7 @@ function App() {
                               <span 
                                 style={{ color: isDarkMode ? '#9ca3af' : '#374151' }}
                               >
-                                Performed 20+ investigations on engineering change requests
+                                {japaneseToggle ? 'エンジニアリング変更要求に対して20回以上の調査を実行' : 'Performed 20+ investigations on engineering change requests'}
                               </span>
                             </li>
                           </ul>
@@ -734,7 +747,7 @@ function App() {
                         : '2px 2px 8px rgba(0, 0, 0, 0.1), 0 0 20px rgba(20, 184, 166, 0.1)'
                     }}
                   >
-                    Tech Stack
+                    {japaneseToggle ? '技術スタック' : 'Tech Stack'}
                   </h2>
                   <div className="w-24 h-1 bg-gradient-to-r from-purple-500 to-pink-600 mx-auto rounded-full"></div>
                 </motion.div>
@@ -749,7 +762,7 @@ function App() {
                   <div className="space-y-2">
                     {/* Frontend Carousel */}
                     <TechCarousel 
-                      title="Frontend"
+                      title={japaneseToggle ? "フロントエンド" : "Frontend"}
                       items={frontendTech}
                       accentColor="bg-blue-500"
                       isDarkMode={isDarkMode}
@@ -757,7 +770,7 @@ function App() {
 
                     {/* Backend Carousel */}
                     <TechCarousel 
-                      title="Backend"
+                      title={japaneseToggle ? "バックエンド" : "Backend"}
                       items={backendTech}
                       accentColor="bg-green-500"
                       direction="reverse"
@@ -766,7 +779,7 @@ function App() {
 
                     {/* Databases Carousel */}
                     <TechCarousel 
-                      title="Databases"
+                      title={japaneseToggle ? "データベース" : "Databases"}
                       items={databaseTech}
                       accentColor="bg-orange-500"
                       isDarkMode={isDarkMode}
@@ -774,7 +787,7 @@ function App() {
 
                     {/* Tools Carousel */}
                     <TechCarousel 
-                      title="Tools"
+                      title={japaneseToggle ? "ツール" : "Tools"}
                       items={toolsTech}
                       accentColor="bg-pink-500"
                       direction="reverse"
@@ -786,7 +799,7 @@ function App() {
             </HeroHighlight>
 
             {/* Projects Section with dynamic layout */}
-            <div id="projects" className="relative z-10 p-6" style={{ scrollMarginTop: '80px' }}>
+            <div id="projects" className="relative z-10 p-2" style={{ scrollMarginTop: '80px' }}>
               <h2 
                 className="text-4xl font-bold mb-8 text-center text-gray-900 dark:text-white"
                 style={{ 
@@ -796,116 +809,63 @@ function App() {
                     : '2px 2px 8px rgba(0, 0, 0, 0.3), 0 0 20px rgba(20, 184, 166, 0.2)'
                 }}
               >
-                My Projects
+                {japaneseToggle ? '私のプロジェクト' : 'My Projects'}
               </h2>
               
               {isEvenNumberOfProjects ? (
                 // Even number: 2-column grid layout
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-7xl mx-auto">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-2 max-w-full mx-auto items-stretch">
                   {projects.map((project) => (
-                    <BackgroundGradient key={project.id} className="rounded-[22px] p-4 sm:p-6 bg-white dark:bg-zinc-900" isDarkMode={isDarkMode}>
+                    <BackgroundGradient key={project.id} className="rounded-[22px] p-2 sm:p-1 bg-white dark:bg-zinc-900 h-full" isDarkMode={isDarkMode}>
                       <div 
-                        className="bg-white dark:bg-zinc-900 rounded-[18px] p-4"
+                        className="bg-white dark:bg-zinc-900 rounded-[18px] p-3 h-full flex flex-col"
                         style={{ 
                           backgroundColor: isDarkMode ? '#18181b' : '#ffffff' 
                         }}
                       >
                         <div 
-                          className="flex items-center justify-center h-56 bg-gray-200 dark:bg-gray-700 rounded-lg mb-6"
+                          className="flex items-center justify-center h-56 bg-gray-200 dark:bg-gray-700 rounded-lg mb-6 overflow-hidden"
                           style={{ 
                             backgroundColor: isDarkMode ? '#374151' : '#f3f4f6' 
                           }}
                         >
-                          {project.icon}
+                          <img 
+                            src={project.image} 
+                            alt={project.title}
+                            className="w-full h-full object-contain rounded-lg"
+                          />
                         </div>
-                        <p 
-                          className="text-lg sm:text-2xl text-black mt-6 mb-4 dark:text-neutral-200"
-                          style={{ 
-                            color: isDarkMode ? '#e5e7eb' : '#111827' 
-                          }}
-                        >
-                          {project.title}
-                        </p>
-                        <p 
-                          className="text-base text-neutral-600 dark:text-neutral-400"
-                          style={{ 
-                            color: isDarkMode ? '#9ca3af' : '#4b5563' 
-                          }}
-                        >
-                          {project.description}
-                        </p>
-                        <button 
-                          className="rounded-full pl-6 pr-2 py-2 text-gray-900 dark:text-white flex items-center space-x-2 bg-gray-200 dark:bg-black mt-6 text-sm font-bold"
-                          style={{ 
-                            backgroundColor: isDarkMode ? '#000000' : '#e5e7eb',
-                            color: isDarkMode ? '#ffffff' : '#111827' 
-                          }}
-                        >
-                          <span>View Project</span>
-                          <span 
-                            className="bg-gray-400 dark:bg-zinc-700 rounded-full text-xs px-3 py-1 text-white"
+                        <div className="flex-1 flex flex-col">
+                          <p 
+                            className="text-lg sm:text-2xl text-black mt-6 mb-4 dark:text-neutral-200"
                             style={{ 
-                              backgroundColor: isDarkMode ? '#3f3f46' : '#6b7280',
-                              color: '#ffffff' 
+                              color: isDarkMode ? '#e5e7eb' : '#111827' 
                             }}
                           >
-                            {project.badge}
-                          </span>
-                        </button>
-                      </div>
-                    </BackgroundGradient>
-                  ))}
-                </div>
-              ) : (
-                // Odd number: 1-column horizontal layout
-                <div className="space-y-6 max-w-7xl mx-auto">
-                  {projects.map((project) => (
-                    <BackgroundGradient key={project.id} className="rounded-[22px] p-4 sm:p-6 bg-white dark:bg-zinc-900" isDarkMode={isDarkMode}>
-                      <div 
-                        className="bg-white dark:bg-zinc-900 rounded-[18px] p-4"
-                        style={{ 
-                          backgroundColor: isDarkMode ? '#18181b' : '#ffffff' 
-                        }}
-                      >
-                        <div className="flex flex-col md:flex-row gap-6 items-center">
-                          {/* Image section */}
-                          <div 
-                            className="flex items-center justify-center w-full md:w-80 h-56 bg-gray-200 dark:bg-gray-700 rounded-lg flex-shrink-0"
+                            {project.title}
+                          </p>
+                          <p 
+                            className="text-base text-neutral-600 dark:text-neutral-400 flex-1 text-center"
                             style={{ 
-                              backgroundColor: isDarkMode ? '#374151' : '#f3f4f6' 
+                              color: isDarkMode ? '#9ca3af' : '#4b5563' 
                             }}
                           >
-                            {project.icon}
-                          </div>
-                          
-                          {/* Content section */}
-                          <div className="flex-1 text-center md:text-left">
-                            <p 
-                              className="text-lg sm:text-2xl text-black mb-4 dark:text-neutral-200"
-                              style={{ 
-                                color: isDarkMode ? '#e5e7eb' : '#111827' 
-                              }}
-                            >
-                              {project.title}
-                            </p>
-                            <p 
-                              className="text-base text-neutral-600 dark:text-neutral-400 mb-6"
-                              style={{ 
-                                color: isDarkMode ? '#9ca3af' : '#4b5563' 
-                              }}
-                            >
-                              {project.description}
-                            </p>
-                            <button 
-                              className="rounded-full pl-6 pr-2 py-2 text-gray-900 dark:text-white flex items-center space-x-2 bg-gray-200 dark:bg-black text-sm font-bold mx-auto md:mx-0 w-fit"
+                            {project.description}
+                          </p>
+                          <div className="flex justify-center mt-6 gap-2">
+                            <a 
+                              href={project.url}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="rounded-full px-3 py-2 text-gray-900 dark:text-white flex items-center space-x-2 bg-gray-200 dark:bg-black text-xs font-bold w-fit hover:shadow-lg transition-all duration-200 hover:scale-105"
                               style={{ 
                                 backgroundColor: isDarkMode ? '#000000' : '#e5e7eb',
                                 color: isDarkMode ? '#ffffff' : '#111827' 
                               }}
                             >
-                              <span>View Project</span>
+                              <span className="text-xs whitespace-nowrap">{japaneseToggle ? 'プロジェクトを見る' : 'View Project'}</span>
                               <span 
-                                className="bg-gray-400 dark:bg-zinc-700 rounded-full text-xs px-3 py-1 text-white"
+                                className="bg-gray-400 dark:bg-zinc-700 rounded-full text-xs px-2 py-0.5 text-white"
                                 style={{ 
                                   backgroundColor: isDarkMode ? '#3f3f46' : '#6b7280',
                                   color: '#ffffff' 
@@ -913,7 +873,130 @@ function App() {
                               >
                                 {project.badge}
                               </span>
-                            </button>
+                            </a>
+                            
+                            {/* Additional buttons based on badge type */}
+                            {project.badge === "Live" && project.liveUrl && (
+                              <a 
+                                href={project.liveUrl}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="rounded-full px-4 py-2 text-gray-900 flex items-center bg-green-400 hover:bg-green-500 text-sm font-bold w-fit hover:shadow-lg transition-all duration-200 hover:scale-105"
+                              >
+                                <span>{japaneseToggle ? '訪問' : 'Visit'}</span>
+                              </a>
+                            )}
+                            
+                            {project.badge === "Download" && project.downloadUrl && (
+                              <a 
+                                href={project.downloadUrl}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="rounded-full px-3 py-2 text-gray-900 flex items-center bg-blue-400 hover:bg-blue-500 text-xs font-bold w-fit hover:shadow-lg transition-all duration-200 hover:scale-105"
+                              >
+                                <span>{japaneseToggle ? 'ダウンロード' : 'Download'}</span>
+                              </a>
+                            )}
+                          </div>
+                        </div>
+                      </div>
+                    </BackgroundGradient>
+                  ))}
+                </div>
+              ) : (
+                // Odd number: 1-column horizontal layout
+                <div className="space-y-4 max-w-full mx-auto">
+                  {projects.map((project) => (
+                    <BackgroundGradient key={project.id} className="rounded-[22px] p-2 sm:p-3 bg-white dark:bg-zinc-900" isDarkMode={isDarkMode}>
+                      <div 
+                        className="bg-white dark:bg-zinc-900 rounded-[18px] p-3"
+                        style={{ 
+                          backgroundColor: isDarkMode ? '#18181b' : '#ffffff' 
+                        }}
+                      >
+                        <div className="flex flex-col md:flex-row gap-6 items-stretch min-h-[320px]">
+                          {/* Image and buttons section */}
+                          <div className="flex flex-col items-center justify-center w-full md:w-80 flex-shrink-0">
+                            <div 
+                              className="flex items-center justify-center w-full h-56 bg-gray-200 dark:bg-gray-700 rounded-lg mb-4 overflow-hidden"
+                              style={{ 
+                                backgroundColor: isDarkMode ? '#374151' : '#f3f4f6' 
+                              }}
+                            >
+                              <img 
+                                src={project.image} 
+                                alt={project.title}
+                                className="w-full h-full object-contain rounded-lg"
+                              />
+                            </div>
+                            
+                            {/* Buttons under image */}
+                            <div className="flex justify-center gap-2 w-full">
+                              <a 
+                                href={project.url}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="rounded-full px-4 py-2 text-gray-900 dark:text-white flex items-center space-x-2 bg-gray-200 dark:bg-black text-xs font-bold w-fit hover:shadow-lg transition-all duration-200 hover:scale-105"
+                                style={{ 
+                                  backgroundColor: isDarkMode ? '#000000' : '#e5e7eb',
+                                  color: isDarkMode ? '#ffffff' : '#111827' 
+                                }}
+                              >
+                                <span className="text-xs whitespace-nowrap">{japaneseToggle ? 'プロジェクトを見る' : 'View Project'}</span>
+                                <span 
+                                  className="bg-gray-400 dark:bg-zinc-700 rounded-full text-xs px-2 py-0.5 text-white"
+                                  style={{ 
+                                    backgroundColor: isDarkMode ? '#3f3f46' : '#6b7280',
+                                    color: '#ffffff' 
+                                  }}
+                                >
+                                  {project.badge}
+                                </span>
+                              </a>
+                              
+                              {/* Additional buttons based on badge type */}
+                              {project.badge === "Live" && project.liveUrl && (
+                                <a 
+                                  href={project.liveUrl}
+                                  target="_blank"
+                                  rel="noopener noreferrer"
+                                  className="rounded-full px-4 py-2 text-gray-900 flex items-center bg-green-400 hover:bg-green-500 text-sm font-bold w-fit hover:shadow-lg transition-all duration-200 hover:scale-105"
+                                >
+                                  <span>{japaneseToggle ? '訪問' : 'Visit'}</span>
+                                </a>
+                              )}
+                              
+                              {project.badge === "Download" && project.downloadUrl && (
+                                <a 
+                                  href={project.downloadUrl}
+                                  target="_blank"
+                                  rel="noopener noreferrer"
+                                  className="rounded-full px-4 py-2 text-gray-900 flex items-center bg-blue-400 hover:bg-blue-500 text-xs font-bold w-fit hover:shadow-lg transition-all duration-200 hover:scale-105"
+                                >
+                                  <span>{japaneseToggle ? 'ダウンロード' : 'Download'}</span>
+                                </a>
+                              )}
+                            </div>
+                          </div>
+                          
+                          {/* Content section - now takes full right side */}
+                          <div className="flex-1 text-center flex flex-col justify-center">
+                            <p 
+                              className="text-lg sm:text-2xl text-black mb-4 dark:text-neutral-200 text-center"
+                              style={{ 
+                                color: isDarkMode ? '#e5e7eb' : '#111827' 
+                              }}
+                            >
+                              {project.title}
+                            </p>
+                            <p 
+                              className="text-base text-neutral-600 dark:text-neutral-400 text-center leading-relaxed"
+                              style={{ 
+                                color: isDarkMode ? '#9ca3af' : '#4b5563' 
+                              }}
+                            >
+                              {project.description}
+                            </p>
                           </div>
                         </div>
                       </div>
@@ -935,9 +1018,9 @@ function App() {
                 className="text-3xl font-bold mb-6 text-gray-800 dark:text-white"
                 style={{ color: isDarkMode ? 'white' : '#111827' }} // Darker text for light mode
               >
-                Contact Me
+                {japaneseToggle ? 'お問い合わせ' : 'Contact Me'}
               </h1>
-              <ContactForm isDarkMode={isDarkMode} />
+              <ContactForm isDarkMode={isDarkMode} japaneseToggle={japaneseToggle} />
             </main>
           </TracingBeam>
         </div>

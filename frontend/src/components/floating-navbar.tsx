@@ -14,6 +14,8 @@ export const FloatingNav = ({
   className,
   isDarkMode,
   setIsDarkMode,
+  japaneseToggle,
+  setJapaneseToggle,
 }: {
   navItems: {
     name: string;
@@ -23,6 +25,8 @@ export const FloatingNav = ({
   className?: string;
   isDarkMode: boolean;
   setIsDarkMode: (value: boolean) => void;
+  japaneseToggle: boolean;
+  setJapaneseToggle: (value: boolean) => void;
 }) => {
   const { scrollYProgress } = useScroll();
   const [visible, setVisible] = useState(false);
@@ -126,7 +130,42 @@ export const FloatingNav = ({
             className="text-xs text-neutral-600 dark:text-neutral-400 font-medium whitespace-nowrap"
             style={{ color: isDarkMode ? '#9ca3af' : '#525252' }} // Force text color
           >
-            {isDarkMode ? 'Dark' : 'Light'}
+            {isDarkMode ? (japaneseToggle ? 'ダーク' : 'Dark') : (japaneseToggle ? 'ライト' : 'Light')}
+          </span>
+        </div>
+        {/* Japanese toggle */}
+        <div className="flex items-center space-x-2">
+          <button
+            onClick={() => {
+              setJapaneseToggle(!japaneseToggle);
+            }}
+            className="relative h-5 w-9 rounded-full transition-colors duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2"
+            style={{ 
+              minWidth: '36px', 
+              minHeight: '20px',
+              background: isDarkMode 
+                ? 'linear-gradient(to right, #9333ea, #3b82f6)' 
+                : 'linear-gradient(to right, #14b8a6, #06b6d4)'
+            }}
+          >
+            <div
+              className={cn(
+                "absolute top-0.5 left-0.5 h-4 w-4 rounded-full bg-white shadow-lg transition-transform duration-200 ease-in-out flex items-center justify-center border border-gray-200/20",
+                japaneseToggle ? "translate-x-4" : "translate-x-0"
+              )}
+            >
+              <img 
+                src={japaneseToggle ? "/assets/japanese-flag.png" : "/assets/usa-flag.png"}
+                alt={japaneseToggle ? "Japanese Flag" : "USA Flag"}
+                className="w-3 h-3 rounded-sm object-cover"
+              />
+            </div>
+          </button>
+          <span 
+            className="text-xs text-neutral-600 dark:text-neutral-400 font-medium whitespace-nowrap"
+            style={{ color: isDarkMode ? '#9ca3af' : '#525252' }} // Force text color
+          >
+            {japaneseToggle ? '日本語' : 'English'}
           </span>
         </div>
       </motion.div>

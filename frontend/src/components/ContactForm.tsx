@@ -4,9 +4,10 @@ import { motion } from "motion/react";
 
 interface ContactFormProps {
   isDarkMode?: boolean;
+  japaneseToggle?: boolean;
 }
 
-export default function ContactForm({ isDarkMode = true }: ContactFormProps) {
+export default function ContactForm({ isDarkMode = true, japaneseToggle = false }: ContactFormProps) {
     const [formData, setFormData] = useState({ name: "", email: "", message: "" });
     const [status, setStatus] = useState("");
     const [isSubmitting, setIsSubmitting] = useState(false);
@@ -20,10 +21,10 @@ export default function ContactForm({ isDarkMode = true }: ContactFormProps) {
         setIsSubmitting(true);
         try {
             await axios.post("http://localhost:3000/contact", formData);
-            setStatus("Message sent successfully! 🎉");
+            setStatus(japaneseToggle ? "メッセージが正常に送信されました！ 🎉" : "Message sent successfully! 🎉");
             setFormData({ name: "", email: "", message: "" });
         } catch {
-            setStatus("Failed to send message. Please try again. ❌");
+            setStatus(japaneseToggle ? "メッセージの送信に失敗しました。もう一度お試しください。 ❌" : "Failed to send message. Please try again. ❌");
         } finally {
             setIsSubmitting(false);
         }
@@ -50,13 +51,13 @@ export default function ContactForm({ isDarkMode = true }: ContactFormProps) {
                                 className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2"
                                 style={{ color: isDarkMode ? '#d1d5db' : '#374151' }} // Force text color
                             >
-                                Your Name
+                                {japaneseToggle ? 'お名前' : 'Your Name'}
                             </label>
                             <input 
                                 name="name" 
                                 id="name"
                                 type="text"
-                                placeholder="Enter your full name" 
+                                placeholder={japaneseToggle ? "フルネームを入力してください" : "Enter your full name"} 
                                 value={formData.name}
                                 onChange={handleChange} 
                                 required 
@@ -74,13 +75,13 @@ export default function ContactForm({ isDarkMode = true }: ContactFormProps) {
                                 className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2"
                                 style={{ color: isDarkMode ? '#d1d5db' : '#374151' }} // Force text color
                             >
-                                Email Address
+                                {japaneseToggle ? 'メールアドレス' : 'Email Address'}
                             </label>
                             <input 
                                 name="email" 
                                 id="email"
                                 type="email" 
-                                placeholder="your.email@example.com" 
+                                placeholder={japaneseToggle ? "your.email@example.com" : "your.email@example.com"} 
                                 value={formData.email}
                                 onChange={handleChange} 
                                 required 
@@ -98,12 +99,12 @@ export default function ContactForm({ isDarkMode = true }: ContactFormProps) {
                                 className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2"
                                 style={{ color: isDarkMode ? '#d1d5db' : '#374151' }} // Force text color
                             >
-                                Message
+                                {japaneseToggle ? 'メッセージ' : 'Message'}
                             </label>
                             <textarea 
                                 name="message" 
                                 id="message"
-                                placeholder="Tell me about your project, idea, or just say hello..." 
+                                placeholder={japaneseToggle ? "プロジェクト、アイデアについて教えてください。または、お気軽にお声をかけてください..." : "Tell me about your project, idea, or just say hello..."} 
                                 value={formData.message}
                                 onChange={handleChange} 
                                 required 
@@ -136,14 +137,14 @@ export default function ContactForm({ isDarkMode = true }: ContactFormProps) {
                                     <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
                                     <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
                                 </svg>
-                                <span className="text-white font-medium">Sending...</span>
+                                <span className="text-white font-medium">{japaneseToggle ? '送信中...' : 'Sending...'}</span>
                             </>
                         ) : (
                             <>
                                 <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
                                 </svg>
-                                <span className="text-white font-medium">Send Message</span>
+                                <span className="text-white font-medium">{japaneseToggle ? 'メッセージを送信' : 'Send Message'}</span>
                             </>
                         )}
                     </motion.button>

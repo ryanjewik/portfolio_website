@@ -15,6 +15,7 @@ interface TechCarouselProps {
   animationDistance?: number;
   direction?: 'normal' | 'reverse';
   isDarkMode?: boolean;
+  japaneseToggle?: boolean;
 }
 
 export const TechCarousel: React.FC<TechCarouselProps> = ({
@@ -24,7 +25,8 @@ export const TechCarousel: React.FC<TechCarouselProps> = ({
   duration = 45,
   animationDistance,
   direction = 'normal',
-  isDarkMode = true
+  isDarkMode = true,
+  japaneseToggle = false
 }) => {
   // Calculate the width needed for one complete set of items
   // Each item is min-w-[100px] + gap-4 (16px), so roughly 116px per item
