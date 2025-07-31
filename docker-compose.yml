@@ -1,0 +1,32 @@
+services:
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    image: portfolio_backend:latest
+    env_file:
+      - .env
+    environment:
+      RAILS_ENV: production
+    ports:
+      - "3000:80"
+    # depends_on removed (no db service)
+    restart: always
+    volumes:
+      - backend_data:/rails/tmp
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    image: portfolio_frontend:latest
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./origin-cert.pem:/etc/ssl/cloudflare/origin-cert.pem:ro
+      - ./origin-key.pem:/etc/ssl/cloudflare/origin-key.pem:ro
+    restart: always
+
+volumes:
+  backend_data:

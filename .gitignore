@@ -71,5 +71,5 @@ pids
 tmp/
 temp/
 
-# Backend (separate repository)
-backend/
+
+*.pem

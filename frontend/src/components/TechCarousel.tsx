@@ -26,7 +26,7 @@ export const TechCarousel: React.FC<TechCarouselProps> = ({
   animationDistance,
   direction = 'normal',
   isDarkMode = true,
-  japaneseToggle = false
+  
 }) => {
   // Calculate the width needed for one complete set of items
   // Each item is min-w-[100px] + gap-4 (16px), so roughly 116px per item
@@ -63,49 +63,29 @@ export const TechCarousel: React.FC<TechCarouselProps> = ({
             ease: "linear" 
           }}
         >
-          {/* First set of items */}
-          {items.map((item, index) => (
-            <div 
-              key={`first-${index}`} 
-              className="flex-shrink-0 flex flex-col items-center p-2 bg-white dark:bg-gray-700 rounded-lg shadow-md min-w-[100px]"
-              style={{ 
-                backgroundColor: isDarkMode ? 'rgba(55, 65, 81, 1)' : 'rgba(255, 255, 255, 1)' // Force background color
-              }}
-            >
-              <div className={`w-10 h-10 ${item.bgColor} rounded-lg flex items-center justify-center mb-1`}>
-                <div className={`w-6 h-6 ${item.textColor}`}>
-                  {item.icon}
-                </div>
-              </div>
-              <span 
-                className="text-xs font-medium text-gray-700 dark:text-gray-300"
-                style={{ color: isDarkMode ? '#d1d5db' : '#374151' }} // Force text color
+          {/* Duplicate items five times for seamless loop and better fill */}
+          {[...Array(5)].map((_, repeatIdx) => (
+            items.map((item, index) => (
+              <div 
+                key={`repeat-${repeatIdx}-${index}`} 
+                className="flex-shrink-0 flex flex-col items-center p-2 bg-white dark:bg-gray-700 rounded-lg shadow-md min-w-[100px]"
+                style={{ 
+                  backgroundColor: isDarkMode ? 'rgba(55, 65, 81, 1)' : 'rgba(255, 255, 255, 1)' // Force background color
+                }}
               >
-                {item.name}
-              </span>
-            </div>
-          ))}
-          {/* Duplicate set of items for seamless loop */}
-          {items.map((item, index) => (
-            <div 
-              key={`second-${index}`} 
-              className="flex-shrink-0 flex flex-col items-center p-2 bg-white dark:bg-gray-700 rounded-lg shadow-md min-w-[100px]"
-              style={{ 
-                backgroundColor: isDarkMode ? 'rgba(55, 65, 81, 1)' : 'rgba(255, 255, 255, 1)' // Force background color
-              }}
-            >
-              <div className={`w-10 h-10 ${item.bgColor} rounded-lg flex items-center justify-center mb-1`}>
-                <div className={`w-6 h-6 ${item.textColor}`}>
-                  {item.icon}
+                <div className={`w-10 h-10 ${item.bgColor} rounded-lg flex items-center justify-center mb-1`}>
+                  <div className={`w-6 h-6 ${item.textColor}`}>
+                    {item.icon}
+                  </div>
                 </div>
+                <span 
+                  className="text-xs font-medium text-gray-700 dark:text-gray-300"
+                  style={{ color: isDarkMode ? '#d1d5db' : '#374151' }} // Force text color
+                >
+                  {item.name}
+                </span>
               </div>
-              <span 
-                className="text-xs font-medium text-gray-700 dark:text-gray-300"
-                style={{ color: isDarkMode ? '#d1d5db' : '#374151' }} // Force text color
-              >
-                {item.name}
-              </span>
-            </div>
+            ))
           ))}
         </motion.div>
       </div>

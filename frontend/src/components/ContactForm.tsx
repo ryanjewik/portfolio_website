@@ -20,7 +20,7 @@ export default function ContactForm({ isDarkMode = true, japaneseToggle = false 
         e.preventDefault();
         setIsSubmitting(true);
         try {
-            await axios.post("http://localhost:3000/contact", formData);
+            await axios.post("https://ryanhideo.dev/api/contact", formData);
             setStatus(japaneseToggle ? "メッセージが正常に送信されました！ 🎉" : "Message sent successfully! 🎉");
             setFormData({ name: "", email: "", message: "" });
         } catch {
