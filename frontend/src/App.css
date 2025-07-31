@@ -1,5 +1,5 @@
 #root {
-  max-width: 1280px;
+  max-width: 80vw;
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
@@ -11,8 +11,8 @@ html {
 }
 
 .logo {
-  height: 6em;
-  padding: 1.5em;
+  height: 6rem;
+  padding: 1.5rem;
   will-change: filter;
   transition: filter 300ms;
 }
@@ -39,7 +39,7 @@ html {
 }
 
 .card {
-  padding: 2em;
+  padding: 2rem;
 }
 
 .read-the-docs {
@@ -48,13 +48,60 @@ html {
 
 #FloatingNav {
   position: fixed;
-  bottom: 1rem;
-  right: 1rem;
+  bottom: 2vw;
+  right: 2vw;
   z-index: 1000;
   background-color: rgba(255, 255, 255, 0.8);
-  border-radius: 8px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-  height: 40px;
-  min-height: 40px;
-  max-height: 40px;
+  border-radius: 0.5rem;
+  box-shadow: 0 0.2rem 1rem rgba(0, 0, 0, 0.1);
+  height: 2.5rem;
+  min-height: 2.5rem;
+  max-height: 2.5rem;
+}
+/* Responsive design for tablets */
+@media (max-width: 900px) {
+  #root {
+    max-width: 95vw;
+    padding: 1.5rem;
+  }
+  .logo {
+    height: 4rem;
+    padding: 1rem;
+  }
+  .card {
+    padding: 1.5rem;
+  }
+  #FloatingNav {
+    bottom: 3vw;
+    right: 3vw;
+    height: 2rem;
+    min-height: 2rem;
+    max-height: 2rem;
+  }
+}
+
+/* Responsive design for mobile */
+@media (max-width: 600px) {
+  #root {
+    max-width: 100vw;
+    padding: 1rem;
+  }
+  .logo {
+    height: 2.5rem;
+    padding: 0.5rem;
+  }
+  .card {
+    padding: 1rem;
+  }
+  #FloatingNav {
+    bottom: 4vw;
+    right: 4vw;
+    height: 1.5rem;
+    min-height: 1.5rem;
+    max-height: 1.5rem;
+    border-radius: 0.25rem;
+  }
+  .read-the-docs {
+    font-size: 0.9rem;
+  }
 }

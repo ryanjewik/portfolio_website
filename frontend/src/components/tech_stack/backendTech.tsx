@@ -20,7 +20,7 @@ export const backendTech: TechItem[] = [
   {
     name: 'C++',
     icon: (
-      <img src="/assets/C++.png" alt="C++" className="w-6 h-6" />
+      <img src="/assets/c++.png" alt="C++" className="w-6 h-6" />
     ),
     bgColor: 'bg-blue-100 dark:bg-blue-900/30',
     textColor: 'text-blue-600'
@@ -28,7 +28,7 @@ export const backendTech: TechItem[] = [
   {
     name: 'Dart',
     icon: (
-      <img src="/assets/Dart.png" alt="Dart" className="w-6 h-6" />
+      <img src="/assets/dart.png" alt="Dart" className="w-6 h-6" />
     ),
     bgColor: 'bg-blue-100 dark:bg-blue-900/30',
     textColor: 'text-blue-500'
@@ -36,7 +36,7 @@ export const backendTech: TechItem[] = [
   {
     name: 'Flask',
     icon: (
-      <img src="/assets/Flask.png" alt="Flask" className="w-6 h-6" />
+      <img src="/assets/flask.png" alt="Flask" className="w-6 h-6" />
     ),
     bgColor: 'bg-gray-100 dark:bg-gray-600',
     textColor: 'text-gray-700 dark:text-gray-300'
@@ -44,7 +44,7 @@ export const backendTech: TechItem[] = [
   {
     name: 'Ruby',
     icon: (
-      <img src="/assets/Ruby.png" alt="Ruby" className="w-6 h-6" />
+      <img src="/assets/ruby.png" alt="Ruby" className="w-6 h-6" />
     ),
     bgColor: 'bg-red-100 dark:bg-red-900/30',
     textColor: 'text-red-600'

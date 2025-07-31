@@ -188,10 +188,10 @@ function Home() {
         </motion.div>
       </div>
       
-      {/* Main Content Layout - Using flex for responsive positioning */}
-      <div className="flex relative z-20">
-        {/* Profile Card Container - Takes fixed width, positioned relative to content */}
-        <div className="w-[32rem] flex-shrink-0">
+      {/* Main Content Layout - Responsive flex/column positioning */}
+      <div className="flex flex-col md:flex-row items-start gap-x-2 md:gap-x-8 relative z-20">
+        {/* Profile Card Container - Responsive: stacks on top for small screens, shrinks more on smaller screens */}
+        <div className="w-full md:w-[28rem] min-w-[16rem] md:min-w-[20rem] max-w-[28rem] flex-shrink mb-8 md:mb-0 sticky md:sticky top-0 md:top-40">
           <FloatingProfileCard
             name={japaneseToggle ? "ライアン・英雄・ジューイック" : "Ryan Hideo Jewik"}
             title="Full Stack AI Developer"
@@ -229,10 +229,9 @@ function Home() {
             ]}
           />
         </div>
-        
-        {/* Main Content - Takes remaining space */}
-        <div className="flex-1 min-w-0">
-          <TracingBeam className="px-12">
+        {/* Main Content - Responsive: full width on mobile, min/max width for better layout */}
+        <div className="flex-1 min-w-0 sm:min-w-[18rem] md:min-w-[24rem] max-w-full md:max-w-[calc(100vw-32rem)]">
+          <TracingBeam className="px-4 sm:px-8 md:px-12">
             {/* About Me Section */}
             <motion.div 
               id="about"
@@ -617,11 +616,14 @@ function Home() {
                           </ul>
                         </div>
                       </div>
-                      <div className="flex gap-4">
-                        <div className="w-1 bg-blue-500 rounded-full flex-shrink-0"></div>
-                        <div className="flex-1 pl-2 text-left">
+                    <div className="flex flex-col sm:flex-row gap-4 items-stretch">
+                      <div className="w-full sm:w-1 bg-blue-500 rounded-full flex-shrink-0"></div>
+                      <div className="flex-1 pl-0 sm:pl-2 text-left">
+                        <div className="flex flex-col items-center sm:items-start">
+                          {/* Project image here if present, otherwise ...existing code... */}
+                          {/* ...existing code... */}
                           <h4 
-                            className="text-xl font-semibold text-gray-900 dark:text-white text-left"
+                            className="text-xl font-semibold text-gray-900 dark:text-white text-left mt-2 sm:mt-0"
                             style={{ color: isDarkMode ? 'white' : '#111827' }}
                           >
                             {japaneseToggle ? 'ソフトウェア工学研究アシスタント' : 'Software Engineering Research Assistant'}
@@ -652,11 +654,12 @@ function Home() {
                             </li>
                             <li className="flex items-start">
                               <span className="text-blue-500 mr-2 mt-1.5 text-xs">●</span>
-                              <span>{japaneseToggle ? 'Hugging Faceを使用してモンテッソーリアプリの統合データに対して感情分析を実行' : 'Performed Sentiment Analysis on the combined data on Montessori Apps using Hugging Face'}</span>
+                              <span>{japaneseToggle ? 'Hugging Faceを使用してモンテッソリアプリの統合データに対して感情分析を実行' : 'Performed Sentiment Analysis on the combined data on Montessori Apps using Hugging Face'}</span>
                             </li>
                           </ul>
                         </div>
                       </div>
+                    </div>
                       <div className="flex gap-4">
                         <div className="w-1 bg-purple-500 rounded-full flex-shrink-0"></div>
                         <div className="flex-1 pl-2 text-left">
@@ -805,9 +808,9 @@ function Home() {
             </HeroHighlight>
 
             {/* Projects Section - Modified to handle clicks */}
-            <div id="projects" className="relative z-10 p-2" style={{ scrollMarginTop: '80px' }}>
+            <div id="projects" className="relative z-10 p-2" style={{ scrollMarginTop: '5rem' }}>
               <h2 
-                className="text-4xl font-bold mb-8 text-center text-gray-900 dark:text-white"
+                className="text-3xl sm:text-4xl font-bold mb-6 sm:mb-8 text-center text-gray-900 dark:text-white"
                 style={{ 
                   color: isDarkMode ? 'white' : '#111827',
                   textShadow: isDarkMode 
@@ -820,7 +823,7 @@ function Home() {
               
               {isEvenNumberOfProjects ? (
                 // Even number: 2-column grid layout
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-2 max-w-full mx-auto items-stretch">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-2 max-w-full mx-auto items-stretch min-w-0 sm:min-w-[18rem] md:min-w-[24rem] max-w-full md:max-w-[calc(100vw-32rem)]">
                   {projects.map((project) => (
                     <BackgroundGradient key={project.id} className="rounded-[22px] p-2 sm:p-1 bg-white dark:bg-zinc-900 h-full" isDarkMode={isDarkMode}>
                       <div 
@@ -830,54 +833,56 @@ function Home() {
                         }}
                         onClick={() => handleProjectClick(project.id)}
                       >
-                        <div 
-                          className="flex items-center justify-center h-56 bg-gray-200 dark:bg-gray-700 rounded-lg mb-6 overflow-hidden"
-                          style={{ 
-                            backgroundColor: isDarkMode ? '#374151' : '#f3f4f6' 
-                          }}
-                        >
-                          <img 
-                            src={project.image} 
-                            alt={project.title}
-                            className="w-full h-full object-contain rounded-lg"
-                          />
-                        </div>
-                        <div className="flex-1 flex flex-col">
-                          <p 
-                            className="text-lg sm:text-2xl text-black mt-6 mb-4 dark:text-neutral-200"
+                        <div className="flex flex-col 2xl:flex-row items-stretch">
+                          <div 
+                            className="flex items-center justify-center h-56 bg-gray-200 dark:bg-gray-700 rounded-lg mb-4 lg:mb-6 overflow-hidden"
                             style={{ 
-                              color: isDarkMode ? '#e5e7eb' : '#111827' 
+                              backgroundColor: isDarkMode ? '#374151' : '#f3f4f6' 
                             }}
                           >
-                            {project.title}
-                          </p>
-                          <p 
-                            className="text-base text-neutral-600 dark:text-neutral-400 flex-1 text-center"
-                            style={{ 
-                              color: isDarkMode ? '#9ca3af' : '#4b5563' 
-                            }}
-                          >
-                            {project.description}
-                          </p>
-                          <div className="flex justify-center mt-6 gap-2">
-                            <span 
-                              className="rounded-full px-3 py-2 text-gray-900 dark:text-white flex items-center space-x-2 bg-gray-200 dark:bg-black text-xs font-bold w-fit"
+                            <img 
+                              src={project.image} 
+                              alt={project.title}
+                              className="w-full h-full object-contain rounded-lg"
+                            />
+                          </div>
+                          <div className="flex-1 flex flex-col justify-center text-center">
+                            <p 
+                              className="text-lg lg:text-2xl text-black mt-2 lg:mt-6 mb-2 lg:mb-4 dark:text-neutral-200"
                               style={{ 
-                                backgroundColor: isDarkMode ? '#000000' : '#e5e7eb',
-                                color: isDarkMode ? '#ffffff' : '#111827' 
+                                color: isDarkMode ? '#e5e7eb' : '#111827' 
                               }}
                             >
-                              <span className="text-xs whitespace-nowrap">{japaneseToggle ? 'クリックして詳細を見る' : 'Click for Details'}</span>
+                              {project.title}
+                            </p>
+                            <p 
+                              className="text-base text-neutral-600 dark:text-neutral-400 flex-1 text-center"
+                              style={{ 
+                                color: isDarkMode ? '#9ca3af' : '#4b5563' 
+                              }}
+                            >
+                              {project.description}
+                            </p>
+                            <div className="flex justify-center mt-4 lg:mt-6 gap-2">
                               <span 
-                                className="bg-gray-400 dark:bg-zinc-700 rounded-full text-xs px-2 py-0.5 text-white"
+                                className="rounded-full px-3 py-2 text-gray-900 dark:text-white flex items-center space-x-2 bg-gray-200 dark:bg-black text-xs font-bold w-fit"
                                 style={{ 
-                                  backgroundColor: isDarkMode ? '#3f3f46' : '#6b7280',
-                                  color: '#ffffff' 
+                                  backgroundColor: isDarkMode ? '#000000' : '#e5e7eb',
+                                  color: isDarkMode ? '#ffffff' : '#111827' 
                                 }}
                               >
-                                {project.badge}
+                                <span className="text-xs whitespace-nowrap">{japaneseToggle ? 'クリックして詳細を見る' : 'Click for Details'}</span>
+                                <span 
+                                  className="bg-gray-400 dark:bg-zinc-700 rounded-full text-xs px-2 py-0.5 text-white"
+                                  style={{ 
+                                    backgroundColor: isDarkMode ? '#3f3f46' : '#6b7280',
+                                    color: '#ffffff' 
+                                  }}
+                                >
+                                  {project.badge}
+                                </span>
                               </span>
-                            </span>
+                            </div>
                           </div>
                         </div>
                       </div>
@@ -886,7 +891,7 @@ function Home() {
                 </div>
               ) : (
                 // Odd number: 1-column horizontal layout with click handlers
-                <div className="space-y-4 max-w-full mx-auto">
+                <div className="space-y-4 max-w-full mx-auto min-w-0 sm:min-w-[18rem] md:min-w-[24rem] max-w-full md:max-w-[calc(100vw-32rem)]">
                   {projects.map((project) => (
                     <BackgroundGradient key={project.id} className="rounded-[22px] p-2 sm:p-3 bg-white dark:bg-zinc-900" isDarkMode={isDarkMode}>
                       <div 
@@ -896,9 +901,9 @@ function Home() {
                         }}
                         onClick={() => handleProjectClick(project.id)}
                       >
-                        <div className="flex flex-col md:flex-row gap-6 items-stretch min-h-[320px]">
+                        <div className="flex flex-col 2xl:flex-row gap-6 items-stretch min-h-[320px]">
                           {/* Image section */}
-                          <div className="flex flex-col items-center justify-center w-full md:w-80 flex-shrink-0">
+                          <div className="flex flex-col items-center justify-center w-full lg:w-80 flex-shrink-0">
                             <div 
                               className="flex items-center justify-center w-full h-56 bg-gray-200 dark:bg-gray-700 rounded-lg mb-4 overflow-hidden"
                               style={{ 
@@ -912,11 +917,10 @@ function Home() {
                               />
                             </div>
                           </div>
-                          
                           {/* Content section */}
                           <div className="flex-1 text-center flex flex-col justify-center">
                             <p 
-                              className="text-lg sm:text-2xl text-black mb-4 dark:text-neutral-200 text-center"
+                              className="text-lg lg:text-2xl text-black mb-2 lg:mb-4 dark:text-neutral-200 text-center"
                               style={{ 
                                 color: isDarkMode ? '#e5e7eb' : '#111827' 
                               }}
@@ -924,7 +928,7 @@ function Home() {
                               {project.title}
                             </p>
                             <p 
-                              className="text-base text-neutral-600 dark:text-neutral-400 text-center leading-relaxed mb-4"
+                              className="text-base text-neutral-600 dark:text-neutral-400 text-center leading-relaxed mb-2 lg:mb-4"
                               style={{ 
                                 color: isDarkMode ? '#9ca3af' : '#4b5563' 
                               }}
@@ -947,14 +951,14 @@ function Home() {
 
             <main 
               id="contact" 
-              className="relative z-10 p-12 mx-6 my-8 bg-gray-50/95 dark:bg-gray-900/95 backdrop-blur-md rounded-3xl shadow-[0_20px_50px_rgba(0,_0,_0,_0.15)] dark:shadow-[0_20px_50px_rgba(0,_0,_0,_0.3)] hover:shadow-[0_25px_60px_rgba(0,_0,_0,_0.2)] dark:hover:shadow-[0_25px_60px_rgba(0,_0,_0,_0.4)] border border-gray-200/20 dark:border-gray-700/20 transition-all duration-300 hover:-translate-y-1" 
+              className="relative z-10 p-4 sm:p-8 md:p-12 mx-2 sm:mx-6 my-8 bg-gray-50/95 dark:bg-gray-900/95 backdrop-blur-md rounded-3xl shadow-[0_20px_50px_rgba(0,_0,_0,_0.15)] dark:shadow-[0_20px_50px_rgba(0,_0,_0,_0.3)] hover:shadow-[0_25px_60px_rgba(0,_0,_0,_0.2)] dark:hover:shadow-[0_25px_60px_rgba(0,_0,_0,_0.4)] border border-gray-200/20 dark:border-gray-700/20 transition-all duration-300 hover:-translate-y-1 min-w-0 sm:min-w-[18rem] md:min-w-[24rem] max-w-full md:max-w-[calc(100vw-32rem)]" 
               style={{ 
-                scrollMarginTop: '80px',
+                scrollMarginTop: '5rem',
                 backgroundColor: isDarkMode ? 'rgba(17, 24, 39, 0.95)' : 'rgba(255, 255, 255, 0.95)' // Force background color
               }}
             >
               <h1 
-                className="text-3xl font-bold mb-6 text-gray-800 dark:text-white"
+                className="text-2xl sm:text-3xl font-bold mb-4 sm:mb-6 text-gray-800 dark:text-white"
                 style={{ color: isDarkMode ? 'white' : '#111827' }} // Darker text for light mode
               >
                 {japaneseToggle ? 'お問い合わせ' : 'Contact Me'}

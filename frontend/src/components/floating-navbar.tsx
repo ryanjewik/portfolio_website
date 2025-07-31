@@ -67,7 +67,6 @@ export const FloatingNav = ({
         initial={{
           opacity: 1,
           y: -100,
-          //y:0,
         }}
         animate={{
           y: visible ? 0 : -100,
@@ -77,11 +76,12 @@ export const FloatingNav = ({
           duration: 0.2,
         }}
         className={cn(
-          "flex max-w-fit fixed top-10 inset-x-0 mx-auto border border-transparent dark:border-white/[0.2] rounded-full dark:bg-black bg-white shadow-[0px_2px_3px_-1px_rgba(0,0,0,0.1),0px_1px_0px_0px_rgba(25,28,33,0.02),0px_0px_0px_1px_rgba(25,28,33,0.08)] z-[5000] px-12 py-1 items-center justify-center space-x-10 h-18",
+          // Responsive height, padding, and spacing
+          "flex max-w-full sm:max-w-fit fixed top-2 sm:top-10 inset-x-0 mx-auto border border-transparent dark:border-white/[0.2] rounded-full dark:bg-black bg-white shadow-[0px_2px_3px_-1px_rgba(0,0,0,0.1),0px_1px_0px_0px_rgba(25,28,33,0.02),0px_0px_0px_1px_rgba(25,28,33,0.08)] z-[5000] px-2 sm:px-6 md:px-10 py-1 sm:py-2 items-center justify-center space-x-2 sm:space-x-6 md:space-x-10 h-10 sm:h-14 md:h-18",
           className
         )}
         style={{ 
-          backgroundColor: isDarkMode ? 'rgba(0, 0, 0, 0.95)' : 'rgba(255, 255, 255, 0.95)' // Force background color
+          backgroundColor: isDarkMode ? 'rgba(0, 0, 0, 0.95)' : 'rgba(255, 255, 255, 0.95)'
         }}
       >
         {navItems.map((navItem: any, idx: number) => (
@@ -90,26 +90,26 @@ export const FloatingNav = ({
             href={navItem.link}
             onClick={(e) => handleNavClick(e, navItem.link)}
             className={cn(
-              "relative dark:text-neutral-50 items-center flex space-x-1 text-neutral-600 dark:hover:text-neutral-300 hover:text-neutral-500 text-sm font-medium"
+              // Responsive text size and spacing
+              "relative dark:text-neutral-50 items-center flex space-x-1 text-xs sm:text-sm md:text-base font-medium text-neutral-600 dark:hover:text-neutral-300 hover:text-neutral-500"
             )}
-            style={{ color: isDarkMode ? '#fafafa' : '#525252' }} // Force text color
+            style={{ color: isDarkMode ? '#fafafa' : '#525252' }}
           >
-            <span className="block sm:hidden">{navItem.icon}</span>
-            <span className="hidden sm:block text-lg">{navItem.name}</span>
+            <span className="block sm:hidden text-xs">{navItem.icon}</span>
+            <span className="hidden sm:block text-xs sm:text-sm md:text-base">{navItem.name}</span>
           </a>
-          
         ))}
         
         {/* Dark Mode Toggle */}
-        <div className="flex items-center space-x-2">
+        <div className="flex items-center space-x-1 sm:space-x-2">
           <button
             onClick={() => {
               setIsDarkMode(!isDarkMode);
             }}
-            className="relative h-5 w-9 rounded-full transition-colors duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2"
+            className="relative h-4 w-7 sm:h-5 sm:w-9 rounded-full transition-colors duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2"
             style={{ 
-              minWidth: '36px', 
-              minHeight: '20px',
+              minWidth: '28px', 
+              minHeight: '16px',
               background: isDarkMode 
                 ? 'linear-gradient(to right, #9333ea, #3b82f6)' 
                 : 'linear-gradient(to right, #14b8a6, #06b6d4)'
@@ -117,32 +117,32 @@ export const FloatingNav = ({
           >
             <div
               className={cn(
-                "absolute top-0.5 left-0.5 h-4 w-4 rounded-full bg-white shadow-lg transition-transform duration-200 ease-in-out flex items-center justify-center border border-gray-200/20",
-                isDarkMode ? "translate-x-4" : "translate-x-0"
+                "absolute top-0.5 left-0.5 h-3 w-3 sm:h-4 sm:w-4 rounded-full bg-white shadow-lg transition-transform duration-200 ease-in-out flex items-center justify-center border border-gray-200/20",
+                isDarkMode ? "translate-x-3 sm:translate-x-4" : "translate-x-0"
               )}
             >
-              <span className="text-[7px] leading-none flex items-center justify-center w-full h-full">
+              <span className="text-[6px] sm:text-[7px] leading-none flex items-center justify-center w-full h-full">
                 {isDarkMode ? '🌙' : '☀️'}
               </span>
             </div>
           </button>
           <span 
-            className="text-xs text-neutral-600 dark:text-neutral-400 font-medium whitespace-nowrap"
-            style={{ color: isDarkMode ? '#9ca3af' : '#525252' }} // Force text color
+            className="text-[10px] sm:text-xs text-neutral-600 dark:text-neutral-400 font-medium whitespace-nowrap"
+            style={{ color: isDarkMode ? '#9ca3af' : '#525252' }}
           >
             {isDarkMode ? (japaneseToggle ? 'ダーク' : 'Dark') : (japaneseToggle ? 'ライト' : 'Light')}
           </span>
         </div>
         {/* Japanese toggle */}
-        <div className="flex items-center space-x-2">
+        <div className="flex items-center space-x-1 sm:space-x-2">
           <button
             onClick={() => {
               setJapaneseToggle(!japaneseToggle);
             }}
-            className="relative h-5 w-9 rounded-full transition-colors duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2"
+            className="relative h-4 w-7 sm:h-5 sm:w-9 rounded-full transition-colors duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2"
             style={{ 
-              minWidth: '36px', 
-              minHeight: '20px',
+              minWidth: '28px', 
+              minHeight: '16px',
               background: isDarkMode 
                 ? 'linear-gradient(to right, #9333ea, #3b82f6)' 
                 : 'linear-gradient(to right, #14b8a6, #06b6d4)'
@@ -150,20 +150,20 @@ export const FloatingNav = ({
           >
             <div
               className={cn(
-                "absolute top-0.5 left-0.5 h-4 w-4 rounded-full bg-white shadow-lg transition-transform duration-200 ease-in-out flex items-center justify-center border border-gray-200/20",
-                japaneseToggle ? "translate-x-4" : "translate-x-0"
+                "absolute top-0.5 left-0.5 h-3 w-3 sm:h-4 sm:w-4 rounded-full bg-white shadow-lg transition-transform duration-200 ease-in-out flex items-center justify-center border border-gray-200/20",
+                japaneseToggle ? "translate-x-3 sm:translate-x-4" : "translate-x-0"
               )}
             >
               <img 
                 src={japaneseToggle ? "/assets/japanese-flag.png" : "/assets/usa-flag.png"}
                 alt={japaneseToggle ? "Japanese Flag" : "USA Flag"}
-                className="w-3 h-3 rounded-sm object-cover"
+                className="w-2 h-2 sm:w-3 sm:h-3 rounded-sm object-cover"
               />
             </div>
           </button>
           <span 
-            className="text-xs text-neutral-600 dark:text-neutral-400 font-medium whitespace-nowrap"
-            style={{ color: isDarkMode ? '#9ca3af' : '#525252' }} // Force text color
+            className="text-[10px] sm:text-xs text-neutral-600 dark:text-neutral-400 font-medium whitespace-nowrap"
+            style={{ color: isDarkMode ? '#9ca3af' : '#525252' }}
           >
             {japaneseToggle ? '日本語' : 'English'}
           </span>
