@@ -36,8 +36,8 @@ Rails.application.configure do
   address: "mail.ryanhideosmtp.com",
   port: 587,
   domain: "ryanhideo.dev",
-  user_name: "mailuser",
-  password: "Happyrhino8!",
+  user_name: ENV['EMAIL_USER'],
+  password: ENV['EMAIL_PASSWORD'],
   authentication: :plain,
   enable_starttls_auto: true
 }
