@@ -31,22 +31,25 @@ Rails.application.configure do
   config.action_mailer.perform_deliveries = true
   config.action_mailer.delivery_method = :smtp
   
-  # Gmail SMTP configuration
+  config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
-    address: 'smtp.gmail.com',
-    port: 587,
-    domain: 'gmail.com',
-    user_name: ENV['EMAIL_USER'],
-    password: ENV['EMAIL_PASSWORD'],
-    authentication: 'plain',
-    enable_starttls_auto: true
-  }
+  address: "mail.ryanhideosmtp.com",
+  port: 587,
+  domain: "ryanhideo.dev",
+  user_name: "mailuser",
+  password: "Happyrhino8!",
+  authentication: :plain,
+  enable_starttls_auto: true
+}
+
+
+  config.action_mailer.default_url_options = { host: "localhost", port: 3000 }
+  config.action_mailer.raise_delivery_errors = true
 
   # Make template changes take effect immediately.
   config.action_mailer.perform_caching = false
 
   # Set localhost to be used by links generated in mailer templates.
-  config.action_mailer.default_url_options = { host: "localhost", port: 3000 }
 
   # Print deprecation notices to the Rails logger.
   config.active_support.deprecation = :log

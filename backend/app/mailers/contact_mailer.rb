@@ -6,7 +6,7 @@ class ContactMailer < ApplicationMailer
 
     mail(
       to: "ryanjewik25@gmail.com",              # Your inbox
-      from: email,       # Or your Gmail if you're using that
+      from: "contact@ryanhideosmtp.com",       # Or your Gmail if you're using that
       reply_to: email,                       # This is key: sets Reply-To header
       subject: "New Contact Message from #{name}"
     )

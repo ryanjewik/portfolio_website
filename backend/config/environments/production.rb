@@ -78,14 +78,16 @@ Rails.application.configure do
   #mail stuff
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
-  address: "smtp.gmail.com",
+  address: "mail.ryanhideosmtp.com",
   port: 587,
-  domain: "yourdomain.com",
-  user_name: ENV["EMAIL_USER"],
-  password: ENV["EMAIL_PASSWORD"],
-  authentication: "plain",
+  domain: "ryanhideo.dev",
+  user_name: "mailuser",
+  password: "Happyrhino8!",
+  authentication: :plain,
   enable_starttls_auto: true
-  }
+}
+
+
   config.action_mailer.default_url_options = { host: "ryanhideo.dev", protocol: "https" }
 
 end
