@@ -60,6 +60,16 @@ function Home() {
     },
     {
       id: 3,
+      title: japaneseToggle ? "パーソナルSMTPサーバー" : "Personal SMTP Server",
+      description: japaneseToggle
+        ? "アプリケーション用に安全でプライベートなメール送信を可能にするパーソナルSMTPサーバー。パスワードリセットやメール認証ページの提供、AWS Cloudwatchによるログ監視も実装。"
+        : "A server used to securely manage email communications for my applications, serve pages for password resets and email verification, and monitor logs using AWS Cloudwatch.",
+      image: "/assets/smtp.PNG",
+      badge: "Live",
+      url: "https://github.com/ryanjewik/smtp-server"
+    },
+    {
+      id: 4,
       title: japaneseToggle ? "TUJモバイルアプリ" : "TUJ Mobile App",
       description: japaneseToggle
         ? "テンプル大学ジャパンでの留学中に開発されたモバイルアプリケーション。他の学生や卒業生との交流、投稿、プロジェクト、インターンシップの共有などのコミュニティ機能を備えています。"
@@ -69,7 +79,7 @@ function Home() {
       url: "https://github.com/ktsu2i/tuj-cs-app"
     },
     {
-      id: 4,
+      id: 5,
       title: japaneseToggle ? "クライミングコミュニティウェブサイト" : "Climbing Community Website",
       description: japaneseToggle
         ? "HTML、CSS、Python、MySQLで構築されたレスポンシブクライミングコミュニティウェブサイト。クライマーがクライミングルートを見つけ、共有し、評価でき、スキルレベルに基づいたレコメンデーションシステムも備えたアプリ。"
@@ -79,7 +89,7 @@ function Home() {
       url: "https://github.com/ryanjewik/Climb_App"
     },
     {
-      id: 5,
+      id: 6,
       title: japaneseToggle ? "アプリストアレビュー感情分析" : "App Store Review Sentiment Analysis",
       description: japaneseToggle
         ? "モバイルアプリのユーザーレビューを分析し、競合アプリと比較し、スパイダーグラフで可視化するフルスタック感情分析アプリケーション。"
@@ -497,48 +507,80 @@ function Home() {
                     </div>
                     
                     {/* Certification Items */}
-                    <div className="flex gap-4">
-                      <div className="w-1 bg-green-500 rounded-full flex-shrink-0"></div>
-                      <div className="flex-1 pl-2 text-left">
-                        <div className="flex items-center gap-3 mb-2">
-                          <h4 
-                            className="text-xl font-semibold text-gray-900 dark:text-white text-left"
-                            style={{ color: isDarkMode ? 'white' : '#111827' }}
+                    <div className="flex flex-col gap-6">
+                      {/* CompTIA Security+ */}
+                      <div className="flex gap-4">
+                        <div className="w-1 bg-green-500 rounded-full flex-shrink-0"></div>
+                        <div className="flex-1 pl-2 text-left">
+                          <div className="flex items-center gap-3 mb-2">
+                            <h4 
+                              className="text-xl font-semibold text-gray-900 dark:text-white text-left"
+                              style={{ color: isDarkMode ? 'white' : '#111827' }}
+                            >
+                              CompTIA Security+
+                            </h4>
+                            <span className="px-3 py-1 bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-300 rounded-full text-sm font-medium">
+                              {japaneseToggle ? '認定済み' : 'Certified'}
+                            </span>
+                          </div>
+                          <p 
+                            className="text-green-600 dark:text-green-400 font-medium text-left"
+                            style={{ color: isDarkMode ? '#4ade80' : '#059669' }}
                           >
-                            CompTIA Security+
-                          </h4>
-                          <span className="px-3 py-1 bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-300 rounded-full text-sm font-medium">
-                            {japaneseToggle ? '認定済み' : 'Certified'}
-                          </span>
-                        </div>
-                        <p 
-                          className="text-green-600 dark:text-green-400 font-medium text-left"
-                          style={{ color: isDarkMode ? '#4ade80' : '#059669' }}
-                        >
-                          {japaneseToggle ? 'サイバーセキュリティ基礎' : 'Cybersecurity Foundation'}
-                        </p>
-                        <p 
-                          className="text-gray-600 dark:text-gray-400 text-left"
-                          style={{ color: isDarkMode ? '#9ca3af' : '#4b5563' }}
-                        >
-                          {japaneseToggle ? 'CompTIA • 2025年' : 'CompTIA • 2025'}
-                        </p>
-                        <p 
-                          className="text-gray-500 dark:text-gray-400 mt-2 text-left"
-                          style={{ color: isDarkMode ? '#9ca3af' : '#374151' }}
-                        >
-                          {japaneseToggle ? 'リスク管理、脅威分析、インシデント対応を含むサイバーセキュリティスキルを検証' : 'Validates cybersecurity skills including risk management, threat analysis, and incident response'}
-                        </p>
-                        <div className="flex items-center gap-2 mt-3">
-                          <svg className="w-5 h-5 text-green-500" fill="currentColor" viewBox="0 0 20 20">
-                            <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
-                          </svg>
-                          <span 
-                            className="text-sm text-gray-600 dark:text-gray-400"
+                            {japaneseToggle ? 'サイバーセキュリティ基礎' : 'Cybersecurity Foundation'}
+                          </p>
+                          <p 
+                            className="text-gray-600 dark:text-gray-400 text-left"
                             style={{ color: isDarkMode ? '#9ca3af' : '#4b5563' }}
                           >
-                            {japaneseToggle ? 'DoD 8570 承認済み' : 'DoD 8570 Approved'}
-                          </span>
+                            {japaneseToggle ? 'CompTIA • 2025年' : 'CompTIA • 2025'}
+                          </p>
+                          <p 
+                            className="text-gray-500 dark:text-gray-400 mt-2 text-left"
+                            style={{ color: isDarkMode ? '#9ca3af' : '#374151' }}
+                          >
+                            {japaneseToggle ? 'リスク管理、脅威分析、インシデント対応を含むサイバーセキュリティスキルを検証' : 'Validates cybersecurity skills including risk management, threat analysis, and incident response'}
+                          </p>
+                          <div className="flex items-center gap-2 mt-3">
+                            <svg className="w-5 h-5 text-green-500" fill="currentColor" viewBox="0 0 20 20">
+                              <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                            </svg>
+                            <span 
+                              className="text-sm text-gray-600 dark:text-gray-400"
+                              style={{ color: isDarkMode ? '#9ca3af' : '#4b5563' }}
+                            >
+                              {japaneseToggle ? 'DoD 8570 承認済み' : 'DoD 8570 Approved'}
+                            </span>
+                          </div>
+                        </div>
+                      </div>
+                      {/* AWS Certified Data Engineer – Associate */}
+                      <div className="flex gap-4">
+                        <div className="w-1 bg-green-500 rounded-full flex-shrink-0"></div>
+                        <div className="flex-1 pl-2 text-left">
+                          <div className="flex items-center gap-3 mb-2">
+                            <h4 
+                              className="text-xl font-semibold text-gray-900 dark:text-white text-left"
+                              style={{ color: isDarkMode ? 'white' : '#111827' }}
+                            >
+                              {japaneseToggle ? 'AWS認定データエンジニア – アソシエイト' : 'AWS Certified Data Engineer – Associate'}
+                            </h4>
+                            <span className="px-3 py-1 bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-300 rounded-full text-sm font-medium">
+                              {japaneseToggle ? '認定済み' : 'Certified'}
+                            </span>
+                          </div>
+                          <p 
+                            className="text-green-600 dark:text-green-400 font-medium text-left"
+                            style={{ color: isDarkMode ? '#4ade80' : '#059669' }}
+                          >
+                            {japaneseToggle ? 'AWS上でのデータ分析ソリューションの設計・構築・運用スキルを証明' : 'Validates ability to design, build, and maintain data analytics solutions on AWS.'}
+                          </p>
+                          <p 
+                            className="text-gray-600 dark:text-gray-400 text-left"
+                            style={{ color: isDarkMode ? '#9ca3af' : '#4b5563' }}
+                          >
+                            {japaneseToggle ? 'AWS • 2025年' : 'AWS • 2025'}
+                          </p>
                         </div>
                       </div>
                     </div>

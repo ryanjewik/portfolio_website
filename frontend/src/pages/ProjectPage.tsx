@@ -118,6 +118,49 @@ const projectsData: Project[] = [
   {
     id: 3,
     stickyScrollHeaders: [
+      'About my SMTP server',
+      'Features',
+      'Challenges & Solutions'
+    ],
+    stickyScrollHeadersJapanese: [
+      "サーバー概要",
+      "主な機能",
+      "課題と解決策"
+    ],
+    title: "Personal SMTP Server",
+    titleJapanese: "パーソナルSMTPサーバー",
+    description: "A personal SMTP server application that allows myself to send emails securely and privately for my applications.",
+  descriptionJapanese: "アプリケーション用に安全でプライベートなメール送信を可能にするパーソナルSMTPサーバー。",
+    scrollDescription: "Across my applications I found that there was a need to send emails for different purposes, such as the contact form of my portfolio website or the password resets on my poketask app. As such, I wanted to be able to manage, monitor, and setup the security for my own SMTP server.",
+    scrollDescriptionJapanese: "安全なメール通信のために独自のSMTPサーバーを設定。プライバシーを重視するユーザーや開発者に最適です。",
+    image: "/assets/smtp.PNG",
+    badge: "Live",
+    url: "https://github.com/ryanjewik/smtp-server",
+    liveUrl: "https://ryanhideosmtp.com",
+    techStack: ["React", "Tailwind_CSS", "TypeScript", "Linux", "HTML", "Supabase", "EC2"],
+    challenges: "Securely managing email communications and ensuring privacy, while hosting the server to manage different services like the contact form, password resets, and email confirmations.",
+  challengesJapanese: "複数サービスのメール送信を安全に管理し、プライバシーを確保することが課題でした。",
+    solution: "Implemented advanced security measures including TLS encryption using Let's Encrypt, Postfix and DKIM configurations, and managing DNS records to protect email data privacy and integrity.",
+  solutionJapanese: "TLS暗号化、PostfixやDKIM設定、DNS管理などの高度なセキュリティ対策を実装し、メールの安全性とプライバシーを確保しました。",
+    features: [
+      "Let's Encrypt CA for TLS encryption",
+      "OpenDKIM for email signing",
+      "Postfix as the mail transfer agent",
+      "Cloudwatch for email monitoring and analytics",
+      "React pages for password resets and email verification",
+    ],
+    featuresJapanese: [
+      "TLS暗号化のためのLet's Encrypt認証局",
+      "メール署名のためのOpenDKIM",
+      "メール転送エージェントとしてのPostfix",
+      "メール監視と分析のためのCloudwatch",
+      "パスワードリセットとメール認証のためのReactページ"
+    ],
+    screenshots: ["/assets/smtp.PNG", "/assets/smtp_1.PNG", "/assets/smtp_2.PNG"]
+  },
+  {
+    id: 4,
+    stickyScrollHeaders: [
       'About TUJ App',
       'Community Features',
       'Challenges & Solutions'
@@ -136,7 +179,7 @@ const projectsData: Project[] = [
     image: "/assets/tuj_mobile_app.png",
     badge: "Demo",
     url: "https://github.com/ktsu2i/tuj-cs-app",
-    techStack: ["Kotlin", "Firebase", "Jetpack_Compose", "Figma"],
+    techStack: ["React", "Linux", "TailwindCss", "Figma"],
     challenges: "Creating a platform that would encourage student engagement while handling diverse content types and ensuring user privacy.",
     challengesJapanese: "多様なコンテンツ管理とプライバシー保護、学生の積極参加を促す設計が課題でした。",
     solution: "Implemented a comprehensive social platform with secure authentication, content moderation, and intuitive user interface designed specifically for the university community.",
@@ -157,7 +200,7 @@ const projectsData: Project[] = [
     screenshots: ["/assets/tuj_mobile_app.png", "/assets/tuj_mobile_app_6.png", "/assets/tuj_mobile_app_7.png"]
   },
   {
-    id: 4,
+    id: 5,
     stickyScrollHeaders: [
       'About Climbing Site',
       'Climbing Features',
@@ -201,7 +244,7 @@ const projectsData: Project[] = [
     screenshots: ["/assets/climbing_app.PNG", "/assets/climbing_app_2.PNG", "/assets/climbing_app_3.PNG"]
   },
   {
-    id: 5,
+    id: 6,
     stickyScrollHeaders: [
       'About Sentiment App',
       'Analysis Features',
