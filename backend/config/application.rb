@@ -19,6 +19,8 @@ require "rails/test_unit/railtie"
 Bundler.require(*Rails.groups)
 
 module Backend
+# Require Mongoid
+require "mongoid"
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 8.0
@@ -28,6 +30,9 @@ module Backend
     # Common ones are `templates`, `generators`, or `middleware`, for example.
     config.autoload_lib(ignore: %w[assets tasks])
 
+
+  # Load Mongoid config
+  Mongoid.load!(File.expand_path("../mongoid.yml", __dir__))
     # Configuration for the application, engines, and railties goes here.
     #
     # These settings can be overridden in specific environments using the files

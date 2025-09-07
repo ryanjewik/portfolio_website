@@ -1,0 +1,23 @@
+# Mongoid configuration for portfolio_website
+# See https://docs.mongoid.org for options
+
+development:
+  clients:
+    default:
+      uri: <%= ENV['MONGODB_URI_DEVELOPMENT'] %>
+      options:
+        server_selection_timeout: 5
+
+production:
+  clients:
+    default:
+      uri: <%= ENV['MONGODB_URI_PRODUCTION'] %>
+      options:
+        server_selection_timeout: 5
+
+test:
+  clients:
+    default:
+      uri: <%= ENV['MONGODB_URI_TEST'] %>
+      options:
+        server_selection_timeout: 5
