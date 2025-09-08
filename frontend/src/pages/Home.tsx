@@ -46,7 +46,7 @@ interface Experience {
 // --- Projects Section ---
 interface Project {
   _id?: string;
-  id: number;
+  order: number;
   eng_title: string;
   jap_title: string;
   eng_description: string;
@@ -126,8 +126,8 @@ function Home() {
   const isEvenNumberOfProjects = projects.length % 2 === 0;
 
   // Add navigation handler for project clicks
-  const handleProjectClick = (projectId: number) => {
-    navigate(`/project/${projectId}`);
+  const handleProjectClick = (order: number) => {
+    navigate(`/project/${order}`);
   };
 
   return (
@@ -759,27 +759,31 @@ function Home() {
               ) : (
                 <div className={isEvenNumberOfProjects ? "grid grid-cols-2 gap-8" : "grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8"}>
                   {projects.map((proj, idx) => (
-                    <div 
-                      key={proj._id || idx} 
-                      className="bg-white dark:bg-gray-900 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 p-6 flex flex-col items-center cursor-pointer"
-                      onClick={() => navigate(`/project/${proj.id}`)}
+                    <BackgroundGradient
+                      key={proj._id || idx}
+                      className="p-0 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300"
                     >
-                      <img src={proj.image_url} alt={proj.eng_title} className="w-full h-40 object-contain rounded-lg mb-4" />
-                      <h3 className="text-xl font-bold mb-2 text-center text-gray-900 dark:text-white">
-                        {japaneseToggle ? proj.jap_title : proj.eng_title}
-                      </h3>
-                      <p className="text-gray-600 dark:text-gray-300 text-center mb-2">
-                        {japaneseToggle ? proj.jap_description : proj.eng_description}
-                      </p>
-                      <div className="flex gap-2 flex-wrap justify-center mb-2">
-                        {proj.tech_stack && proj.tech_stack.map((tech, tIdx) => (
-                          <span key={tIdx} className="px-2 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 rounded-full text-xs font-medium">{tech}</span>
-                        ))}
+                      <div
+                        className="p-6 flex flex-col items-center cursor-pointer w-full h-full"
+                        onClick={() => handleProjectClick(proj.order)}
+                      >
+                        <img src={proj.image_url} alt={proj.eng_title} className="w-full h-40 object-contain rounded-lg mb-4" />
+                        <h3 className="text-xl font-bold mb-2 text-center text-gray-900 dark:text-white">
+                          {japaneseToggle ? proj.jap_title : proj.eng_title}
+                        </h3>
+                        <p className="text-gray-600 dark:text-gray-300 text-center mb-2">
+                          {japaneseToggle ? proj.jap_description : proj.eng_description}
+                        </p>
+                        <div className="flex gap-2 flex-wrap justify-center mb-2">
+                          {proj.tech_stack && proj.tech_stack.map((tech, tIdx) => (
+                            <span key={tIdx} className="px-2 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 rounded-full text-xs font-medium">{tech}</span>
+                          ))}
+                        </div>
+                        <span className="px-3 py-1 rounded-full text-sm font-medium bg-gray-100 text-gray-800 dark:bg-gray-900/30 dark:text-gray-300">
+                          {proj.badge}
+                        </span>
                       </div>
-                      <span className="px-3 py-1 rounded-full text-sm font-medium bg-gray-100 text-gray-800 dark:bg-gray-900/30 dark:text-gray-300">
-                        {proj.badge}
-                      </span>
-                    </div>
+                    </BackgroundGradient>
                   ))}
                 </div>
               )}
