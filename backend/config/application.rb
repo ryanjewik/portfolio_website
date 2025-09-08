@@ -31,6 +31,8 @@ require "mongoid"
     config.autoload_lib(ignore: %w[assets tasks])
 
 
+  # Log MongoDB URI for debugging
+  puts "MONGODB_URI_DEVELOPMENT: #{ENV['MONGODB_URI_DEVELOPMENT']}"
   # Load Mongoid config
   Mongoid.load!(File.expand_path("../mongoid.yml", __dir__))
     # Configuration for the application, engines, and railties goes here.

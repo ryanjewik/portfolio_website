@@ -27,5 +27,5 @@ class Project
   field :tech_stack, type: Array
   field :order, type: Integer
 
-  validates :eng_title, presence: true
+  # validates :eng_title, presence: true
 end

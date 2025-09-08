@@ -5,8 +5,6 @@ class Certification
 
   field :name, type: String
   field :issuer, type: String
-  field :issue_date, type: Date
-  field :expiration_date, type: Date
   field :jap_issue_date, type: String
   field :jap_expiration_date, type: String
   field :credential_url, type: String
@@ -20,4 +18,7 @@ class Certification
   field :order, type: Integer
 
   validates :name, :issuer, presence: true
+    field :issue_date, type: String
+    field :expiration_date, type: String
+    # validates :name, :issuer, presence: true
 end

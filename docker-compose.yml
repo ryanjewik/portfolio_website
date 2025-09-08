@@ -5,7 +5,7 @@ services:
       dockerfile: Dockerfile
     image: portfolio_backend:latest
     env_file:
-      - .env
+      - ./backend/.env
     environment:
       RAILS_ENV: production
     ports:

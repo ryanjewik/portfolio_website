@@ -90,20 +90,20 @@ function Home() {
 
   // Fetch certifications from backend
   useEffect(() => {
-    fetch('/api/certifications')
+    fetch('http://localhost:3000/api/certifications')
       .then(res => res.json())
       .then(data => {
-        setCertifications(data);
+        setCertifications(data.certifications || data);
         setCertLoading(false);
       });
   }, []);
 
   // Fetch experiences from backend
   useEffect(() => {
-    fetch('/api/experiences')
+    fetch('http://localhost:3000/api/experiences')
       .then(res => res.json())
       .then(data => {
-        setExperiences(data);
+        setExperiences(data.experiences || data);
         setExpLoading(false);
       });
   }, []);
@@ -111,10 +111,10 @@ function Home() {
   // Fetch projects from backend
   useEffect(() => {
     setProjLoading(true);
-    fetch('/api/projects')
+    fetch('http://localhost:3000/api/projects')
       .then(res => res.json())
       .then(data => {
-        setProjects(data);
+        setProjects(data.projects || data);
         setProjLoading(false);
       })
       .catch(() => setProjLoading(false));
