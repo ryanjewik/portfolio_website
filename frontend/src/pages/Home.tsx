@@ -90,7 +90,7 @@ function Home() {
 
   // Fetch certifications from backend
   useEffect(() => {
-    fetch('http://localhost:3000/api/certifications')
+    fetch('/api/certifications')
       .then(res => res.json())
       .then(data => {
         setCertifications(data.certifications || data);
@@ -100,7 +100,7 @@ function Home() {
 
   // Fetch experiences from backend
   useEffect(() => {
-    fetch('http://localhost:3000/api/experiences')
+    fetch('/api/experiences')
       .then(res => res.json())
       .then(data => {
         setExperiences(data.experiences || data);
@@ -111,7 +111,7 @@ function Home() {
   // Fetch projects from backend
   useEffect(() => {
     setProjLoading(true);
-    fetch('http://localhost:3000/api/projects')
+    fetch('/api/projects')
       .then(res => res.json())
       .then(data => {
         setProjects(data.projects || data);
