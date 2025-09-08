@@ -1,0 +1,53 @@
+[
+  {
+    "name": "CompTIA Security+",
+    "issuer": "CompTIA",
+    "issue_date": "2025-07-02",
+    "expiration_date": "2028-07-02",
+    "credential_url": "https://www.credly.com/badges/comptia-security-plus",
+    "eng_description": "Validates cybersecurity skills including risk management, threat analysis, and incident response.",
+    "jap_description": "リスク管理、脅威分析、インシデント対応を含むサイバーセキュリティスキルを検証。",
+    "eng_subheader": "Cybersecurity Foundation",
+    "jap_subheader": "サイバーセキュリティ基礎",
+    "eng_tag": "Certified",
+    "jap_tag": "認定済み",
+    "validation_id": "COMP001022824864",
+  "order": 1,
+  "jap_issue_date": "2025年7月2日",
+  "jap_expiration_date": "2028年7月2日"
+  },
+  {
+    "name": "AWS Certified Data Engineer – Associate",
+    "issuer": "AWS",
+    "issue_date": "2025-08-18",
+    "expiration_date": "2028-08-18",
+    "credential_url": "https://www.credly.com/badges/aws-data-engineer-associate",
+    "eng_description": "Validates ability to design, build, and maintain data analytics solutions on AWS.",
+    "jap_description": "AWS上でのデータ分析ソリューションの設計・構築・運用スキルを証明。",
+    "eng_subheader": "Data Analytics",
+    "jap_subheader": "データ分析",
+    "eng_tag": "Certified",
+    "jap_tag": "認定済み",
+    "validation_id": "7169f7d39e439b9a931be87f010abb",
+  "order": 2,
+  "jap_issue_date": "2025年8月18日",
+  "jap_expiration_date": "2028年8月18日"
+    },
+    {
+      "name": "AWS Certified Machine Learning – Specialty",
+      "issuer": "AWS",
+      "issue_date": "2025-08-06",
+      "expiration_date": "2028-08-06",
+      "credential_url": "https://www.credly.com/badges/aws-machine-learning-specialty",
+      "eng_description": "Validates expertise in building, training, tuning, and deploying machine learning models on AWS.",
+      "jap_description": "AWS上での機械学習モデルの構築、トレーニング、チューニング、デプロイの専門知識を証明。",
+      "eng_subheader": "Machine Learning Engineer",
+      "jap_subheader": "機械学習エンジニア",
+      "eng_tag": "Certified",
+      "jap_tag": "認定済み",
+      "validation_id": "8382e83f1cce4daabaeb4f135f2314",
+  "order": 3,
+  "jap_issue_date": "2025年8月6日",
+  "jap_expiration_date": "2028年8月6日"
+    }
+]

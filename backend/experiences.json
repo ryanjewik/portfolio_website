@@ -1,0 +1,74 @@
+[
+  {
+    "company": "Chapman School of Pharmacy",
+    "role": "Data Science Intern",
+    "jap_role": "データサイエンスインターン",
+    "title": "Opioid Morbidity Prediction",
+    "jap_title": "オピオイド関連罹患率予測",
+    "description": "Feature engineering, data wrangling, and cleaning on over 81 billion rows of health care data.",
+    "jap_description": "810億行を超えるヘルスケアデータの特徴量エンジニアリング、データラングリング、クリーニング。",
+    "start_date": "2024-09-01",
+    "end_date": "2025-03-01",
+    "jap_start_date": "2024年9月",
+    "jap_end_date": "2025年3月",
+    "bullets": [
+      "Employed oversampling and undersampling techniques such as KNN, RUS, SMOTE, and GMMs to solve class imbalance.",
+      "Trained xgboost tree models to predict opioid related morbidity.",
+      "Developed data pipelines for scalable feature engineering and model training."
+    ],
+    "jap_bullets": [
+      "KNN、RUS、SMOTE、GMMsなどの多数のオーバーサンプリングおよびアンダーサンプリング技術を使用してデータのクラス不均衡問題を解決。",
+      "オピオイド関連の罹患率を予測するためのxgboostツリーモデルを訓練。",
+      "スケーラブルな特徴量エンジニアリングとモデル訓練のためのデータパイプラインを開発。"
+    ],
+    "order": 1
+  },
+  {
+    "company": "uIdeasLab",
+    "role": "Software Engineering Research Assistant",
+    "jap_role": "ソフトウェア工学研究アシスタント",
+    "title": "App Store Sentiment Analysis",
+    "jap_title": "アプリストア感情分析",
+    "description": "Scraped, cleaned, and performed feature selection on app store reviews. Combined IOS and Android data for analysis.",
+    "jap_description": "アプリストアレビューのスクレイピング、クリーニング、特徴量選択を実行。iOSとAndroidデータを組み合わせて分析。",
+    "start_date": "2024-09-01",
+    "end_date": "2025-05-01",
+    "jap_start_date": "2024年9月",
+    "jap_end_date": "2025年5月",
+    "bullets": [
+      "Performed Sentiment Analysis on the combined data on Montessori Apps using Hugging Face.",
+      "Implemented feature selection and dimensionality reduction for app review data.",
+      "Automated data scraping and cleaning for both IOS and Android platforms."
+    ],
+    "jap_bullets": [
+      "Hugging Faceを使用してモンテッソリアプリの統合データに対して感情分析を実行。",
+      "アプリレビューの特徴量選択と次元削減を実装。",
+      "iOSとAndroidプラットフォームのデータスクレイピングとクリーニングを自動化。"
+    ],
+    "order": 2
+  },
+  {
+    "company": "L3 Harris",
+    "role": "Project Engineering Intern",
+    "jap_role": "プロジェクト工学インターン",
+    "title": "Customer Billing and CSC Management",
+    "jap_title": "顧客請求とCSC管理",
+    "description": "Reviewed 40+ RFDs against customer contracts to determine billing eligibility. Administered CSCs and performed investigations on engineering change requests.",
+    "jap_description": "顧客請求の適格性を決定するため、40以上のRFD文書を顧客契約に対してレビュー。CSC管理とエンジニアリング変更要求の調査を実施。",
+    "start_date": "2022-05-01",
+    "end_date": "2022-08-01",
+    "jap_start_date": "2022年5月",
+    "jap_end_date": "2022年8月",
+    "bullets": [
+      "Reviewed 40+ Request for Dispositions (RFDs) documents against customer contracts to determine eligibility for customer billing.",
+      "Administered Computer Software Components (CSCs) to address customer comments and integrate into deliver schedules.",
+      "Performed 20+ investigations on engineering change requests."
+    ],
+    "jap_bullets": [
+      "顧客請求の適格性を決定するため、40以上のRFD文書を顧客契約に対してレビュー。",
+      "顧客コメントに対応し、配送スケジュールに統合するためのCSCを管理。",
+      "エンジニアリング変更要求に対して20回以上の調査を実行。"
+    ],
+    "order": 3
+  }
+]
