@@ -41,6 +41,8 @@ RUN bundle install && \
 
 # Copy application code
 COPY . .
+#Ensure mongoid.yml is present in /rails/config
+COPY config/mongoid.yml rails/mongoid.yml
 
 # Precompile bootsnap code for faster boot times
 RUN bundle exec bootsnap precompile app/ lib/
