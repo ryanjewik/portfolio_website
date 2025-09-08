@@ -75,7 +75,32 @@ function ProjectPage() {
     fetch(`/api/projects/${projectId}`)
       .then(res => res.json())
       .then(data => {
-        setProject(data);
+        // Map backend fields to frontend Project interface
+        const mappedProject: Project = {
+          id: data.order,
+          title: data.eng_title || '',
+          titleJapanese: data.jap_title || '',
+          description: data.eng_home_description || '',
+          descriptionJapanese: data.jap_home_description || '',
+          scrollDescription: data.eng_scroll_description || '',
+          scrollDescriptionJapanese: data.jap_scroll_description || '',
+          image: data.image_url || data.home_image_url || '',
+          badge: data.badge || '',
+          url: data.github_url || '',
+          liveUrl: data.live_url || '',
+          downloadUrl: data.download_url || '',
+          techStack: Array.isArray(data.tech_stack) ? data.tech_stack : [],
+          challenges: Array.isArray(data.eng_challenges) ? data.eng_challenges[0] : (data.eng_challenges || ''),
+          challengesJapanese: Array.isArray(data.jap_challenges) ? data.jap_challenges[0] : (data.jap_challenges || ''),
+          solution: '', // Not present in backend, fallback to empty string
+          solutionJapanese: '', // Not present in backend, fallback to empty string
+          features: Array.isArray(data.eng_features) ? data.eng_features : [],
+          featuresJapanese: Array.isArray(data.jap_features) ? data.jap_features : [],
+          screenshots: Array.isArray(data.screenshot_urls) ? data.screenshot_urls : [],
+          stickyScrollHeaders: Array.isArray(data.eng_sticky_scroll_headers) ? data.eng_sticky_scroll_headers : undefined,
+          stickyScrollHeadersJapanese: Array.isArray(data.jap_sticky_scroll_headers) ? data.jap_sticky_scroll_headers : undefined,
+        };
+        setProject(mappedProject);
         setLoading(false);
       })
       .catch(() => setLoading(false));
@@ -127,11 +152,13 @@ function ProjectPage() {
     },
     {
       title: stickyHeaders[1],
-      description: (japaneseToggle ? project.featuresJapanese : project.features).join(' • '),
+      description: Array.isArray(japaneseToggle ? project.featuresJapanese : project.features)
+        ? (japaneseToggle ? project.featuresJapanese : project.features).join(' • ')
+        : '',
       content: (
         <div className="w-full h-full flex items-center justify-center p-4">
           <img 
-            src={project.screenshots[1] || project.image}
+            src={project.screenshots && project.screenshots[1] ? project.screenshots[1] : project.image}
             alt={`${japaneseToggle ? project.titleJapanese : project.title} features`}
             className="w-full h-full object-contain rounded-lg"
           />
@@ -140,11 +167,11 @@ function ProjectPage() {
     },
     {
       title: stickyHeaders[2],
-      description: `${japaneseToggle ? '課題: ' : 'Challenge: '}${japaneseToggle ? project.challengesJapanese : project.challenges} ${japaneseToggle ? ' 解決策: ' : ' Solution: '}${japaneseToggle ? project.solutionJapanese : project.solution}`,
+      description: `${japaneseToggle ? '課題: ' : 'Challenge: '}${japaneseToggle ? project.challengesJapanese || '' : project.challenges || ''} ${japaneseToggle ? ' 解決策: ' : ' Solution: '}${japaneseToggle ? project.solutionJapanese || '' : project.solution || ''}`,
       content: (
         <div className="w-full h-full flex items-center justify-center p-4">
           <img 
-            src={project.screenshots[2] || project.image}
+            src={project.screenshots && project.screenshots[2] ? project.screenshots[2] : project.image}
             alt={`${japaneseToggle ? project.titleJapanese : project.title} solution`}
             className="w-full h-full object-contain rounded-lg"
           />

@@ -158,8 +158,10 @@ export const FloatingProfileCard = ({
           {/* Quick Actions */}
           <div className="space-y-2 sm:space-y-3 mb-4 sm:mb-6">
             <a
-              href="/assets/ryan_j_resume.pdf"
-              download="ryan_j_resume.pdf"
+              href="https://ryan-jewik-portfolio-website.s3.us-west-2.amazonaws.com/ryan_j_resume.pdf"
+              download
+              target="_blank"
+              rel="noopener noreferrer"
               className="block w-full text-white font-medium py-2 sm:py-3 px-4 sm:px-6 rounded-lg sm:rounded-xl hover:shadow-lg hover:scale-[1.02] transition-all duration-200 text-center flex items-center justify-center gap-2 text-sm sm:text-base"
               style={{ 
                 background: isDarkMode 

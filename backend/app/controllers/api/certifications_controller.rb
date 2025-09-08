@@ -10,7 +10,6 @@ class Api::CertificationsController < ApplicationController
           jap_description: cert.jap_description,
           eng_date: cert.issue_date,
           jap_date: cert.jap_issue_date,
-          image_url: cert.credential_url,
           validation_id: cert.validation_id,
           issuer: cert.issuer,
           order: cert.order,

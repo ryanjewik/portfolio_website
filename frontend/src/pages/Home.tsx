@@ -372,217 +372,11 @@ function Home() {
               </motion.div>
 
               <div className="space-y-8">
-                {/* Education Section */}
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.8, delay: 0.6 }}
-                >
-                  <div 
-                    className="bg-gray-50/50 dark:bg-gray-800/50 rounded-2xl p-6 backdrop-blur-sm border border-gray-200/30 dark:border-gray-700/30"
-                    style={{ 
-                      backgroundColor: isDarkMode ? 'rgba(31, 41, 55, 0.5)' : 'rgba(248, 250, 252, 0.8)' // Lighter background for light mode
-                    }}
-                  >
-                    {/* Header Row */}
-                    <div className="flex items-center gap-4 mb-4">
-                      <div className="w-16 h-16 bg-blue-100 dark:bg-blue-900/30 rounded-2xl flex items-center justify-center">
-                        <svg className="w-6 h-6 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 14l9-5-9-5-9 5 9 5z" />
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z" />
-                        </svg>
-                      </div>
-                      <h3 
-                        className="text-2xl font-semibold text-gray-900 dark:text-white"
-                        style={{ color: isDarkMode ? 'white' : '#111827' }} // Darker text for light mode
-                      >
-                        {japaneseToggle ? '学歴' : 'Education'}
-                      </h3>
-                    </div>
-                    
-                    {/* Education Items */}
-                    <div className="space-y-4">
-                      <div className="flex gap-4">
-                        <div className="w-1 bg-blue-500 rounded-full flex-shrink-0"></div>
-                        <div className="flex-1 pl-2 text-left">
-                          <h4 
-                            className="text-xl font-semibold text-gray-900 dark:text-white text-left"
-                            style={{ color: isDarkMode ? 'white' : '#111827' }}
-                          >
-                            {japaneseToggle ? '学士号' : "Bachelor's Degree"}
-                          </h4>
-                          <p 
-                            className="text-blue-600 dark:text-blue-400 font-medium text-left"
-                            style={{ color: isDarkMode ? '#60a5fa' : '#2563eb' }}
-                          >
-                            {japaneseToggle ? 'コンピューターサイエンス' : 'Computer Science'}
-                          </p>
-                          <p 
-                            className="text-gray-600 dark:text-gray-400 text-left"
-                            style={{ color: isDarkMode ? '#9ca3af' : '#4b5563' }}
-                          >
-                            {japaneseToggle ? 'チャップマン大学 • 2021年-2025年' : 'Chapman University • 2021-2025'}
-                          </p>
-                          <p 
-                            className="text-gray-500 dark:text-gray-400 mt-2 text-left"
-                            style={{ color: isDarkMode ? '#9ca3af' : '#374151' }}
-                          >
-                            {japaneseToggle 
-                              ? 'ソフトウェア工学、アルゴリズム、システム設計に焦点を当てた学習'
-                              : 'Focused on software engineering, algorithms, and system design'
-                            }
-                          </p>
-                        </div>
-                      </div>
-                      <div className="flex gap-4">
-                        <div className="w-1 bg-purple-500 rounded-full flex-shrink-0"></div>
-                        <div className="flex-1 pl-2 text-left">
-                          <h4 
-                            className="text-xl font-semibold text-gray-900 dark:text-white text-left"
-                            style={{ color: isDarkMode ? 'white' : '#111827' }}
-                          >
-                            {japaneseToggle ? '学士号' : "Bachelor's Degree"}
-                          </h4>
-                          <p 
-                            className="text-purple-600 dark:text-purple-400 font-medium text-left"
-                            style={{ color: isDarkMode ? '#c084fc' : '#7c3aed' }}
-                          >
-                            {japaneseToggle ? 'データサイエンス' : 'Data Science'}
-                          </p>
-                          <p 
-                            className="text-gray-600 dark:text-gray-400 text-left"
-                            style={{ color: isDarkMode ? '#9ca3af' : '#4b5563' }}
-                          >
-                            {japaneseToggle ? 'チャップマン大学 • 2021年-2025年' : 'Chapman University • 2021-2025'}
-                          </p>
-                          <p 
-                            className="text-gray-500 dark:text-gray-400 mt-2 text-left"
-                            style={{ color: isDarkMode ? '#9ca3af' : '#374151' }}
-                          >
-                            {japaneseToggle 
-                              ? '機械学習、統計分析、データ可視化を専門とした学習'
-                              : 'Specialized in machine learning, statistical analysis, and data visualization'
-                            }
-                          </p>
-                        </div>
-                      </div>
-                      <div className="flex gap-4">
-                        <div className="w-1 bg-red-500 rounded-full flex-shrink-0"></div>
-                        <div className="flex-1 pl-2 text-left">
-                          <h4 
-                            className="text-xl font-semibold text-gray-900 dark:text-white text-left"
-                            style={{ color: isDarkMode ? 'white' : '#111827' }}
-                          >
-                            {japaneseToggle ? '留学' : 'Study Abroad'}
-                          </h4>
-                          <p 
-                            className="text-orange-600 dark:text-orange-400 font-medium text-left"
-                            style={{ color: isDarkMode ? '#fb923c' : '#ea580c' }}
-                          >
-                            {japaneseToggle ? 'テンプル大学ジャパンキャンパス' : 'Temple University Japan'}
-                          </p>
-                          <p 
-                            className="text-gray-600 dark:text-gray-400 text-left"
-                            style={{ color: isDarkMode ? '#9ca3af' : '#4b5563' }}
-                          >
-                            {japaneseToggle ? '東京、日本 • 2024年' : 'Tokyo, Japan • 2024'}
-                          </p>
-                          <p 
-                            className="text-gray-500 dark:text-gray-400 mt-2 text-left"
-                            style={{ color: isDarkMode ? '#9ca3af' : '#374151' }}
-                          >
-                            {japaneseToggle 
-                              ? '異文化学習とグローバルな視点を持つ国際的な学術体験'
-                              : 'International academic experience with cross-cultural learning and global perspectives'
-                            }
-                          </p>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </motion.div>
-
-                {/* Certifications Section */}
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.8, delay: 0.8 }}
-                >
-                  <div 
-                    className="bg-gray-50/50 dark:bg-gray-800/50 rounded-2xl p-6 backdrop-blur-sm border border-gray-200/30 dark:border-gray-700/30"
-                    style={{ 
-                      backgroundColor: isDarkMode ? 'rgba(31, 41, 55, 0.5)' : 'rgba(248, 250, 252, 0.8)' // Lighter background for light mode
-                    }}
-                  >
-                    {/* Header Row */}
-                    <div className="flex items-center gap-4 mb-4">
-                      <div className="w-16 h-16 bg-green-100 dark:bg-green-900/30 rounded-2xl flex items-center justify-center">
-                        <svg className="w-6 h-6 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
-                        </svg>
-                      </div>
-                      <h3 
-                        className="text-2xl font-semibold text-gray-900 dark:text-white"
-                        style={{ color: isDarkMode ? 'white' : '#111827' }} // Darker text for light mode
-                      >
-                        {japaneseToggle ? '資格' : 'Certifications'} ({certLoading ? '...' : certifications.length})
-                      </h3>
-                    </div>
-                    {/* Certification Items - dynamic from API */}
-                    <div className="flex flex-col gap-6">
-                      {certLoading ? (
-                        <div className="text-gray-500 dark:text-gray-400">Loading...</div>
-                      ) : certifications.length === 0 ? (
-                        <div className="text-gray-500 dark:text-gray-400">No certifications found.</div>
-                      ) : (
-                        certifications.map((cert, idx) => (
-                          <div className="flex gap-4" key={cert._id || idx}>
-                            <div className="w-1 bg-green-500 rounded-full flex-shrink-0"></div>
-                            <div className="flex-1 pl-2 text-left">
-                              <div className="flex items-center gap-3 mb-2">
-                                <h4 
-                                  className="text-xl font-semibold text-gray-900 dark:text-white text-left"
-                                  style={{ color: isDarkMode ? 'white' : '#111827' }}
-                                >
-                                  {japaneseToggle ? cert.jap_title : cert.eng_title}
-                                </h4>
-                                <span className="px-3 py-1 bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-300 rounded-full text-sm font-medium">
-                                  {japaneseToggle ? '認定済み' : 'Certified'}
-                                </span>
-                              </div>
-                              <p 
-                                className="text-green-600 dark:text-green-400 font-medium text-left"
-                                style={{ color: isDarkMode ? '#4ade80' : '#059669' }}
-                              >
-                                {japaneseToggle ? cert.jap_description : cert.eng_description}
-                              </p>
-                              <p 
-                                className="text-gray-600 dark:text-gray-400 text-left"
-                                style={{ color: isDarkMode ? '#9ca3af' : '#4b5563' }}
-                              >
-                                {japaneseToggle ? cert.jap_date : cert.eng_date}
-                              </p>
-                              {cert.validation_id && (
-                                <p className="text-gray-500 dark:text-gray-400 mt-2 text-left" style={{ color: isDarkMode ? '#9ca3af' : '#374151' }}>
-                                  {japaneseToggle ? '認証ID: ' : 'Validation ID: '}{cert.validation_id}
-                                </p>
-                              )}
-                              {cert.image_url && (
-                                <img src={cert.image_url} alt={cert.eng_title} className="mt-2 w-32 h-32 object-contain rounded-lg" />
-                              )}
-                            </div>
-                          </div>
-                        ))
-                      )}
-                    </div>
-                  </div>
-                </motion.div>
-
                 {/* Experience Section */}
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.8, delay: 1.0 }}
+                  transition={{ duration: 0.8, delay: 0.8 }}
                 >
                   <div 
                     className="bg-gray-50/50 dark:bg-gray-800/50 rounded-2xl p-6 backdrop-blur-sm border border-gray-200/30 dark:border-gray-700/30"
@@ -603,7 +397,7 @@ function Home() {
                         className="text-2xl font-semibold text-gray-900 dark:text-white"
                         style={{ color: isDarkMode ? 'white' : '#111827' }} // Darker text for light mode
                       >
-                        {japaneseToggle ? '経験' : 'Experience'} ({expLoading ? '...' : experiences.length})
+                        {japaneseToggle ? '経験' : 'Experience'}
                       </h3>
                     </div>
                     {/* Experience Items - dynamic from API */}
@@ -649,6 +443,82 @@ function Home() {
                                   </li>
                                 ))}
                               </ul>
+                            </div>
+                          </div>
+                        ))
+                      )}
+                    </div>
+                  </div>
+                </motion.div>
+
+                {/* Certifications Section */}
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.8, delay: 1.0 }}
+                >
+                  <div 
+                    className="bg-gray-50/50 dark:bg-gray-800/50 rounded-2xl p-6 backdrop-blur-sm border border-gray-200/30 dark:border-gray-700/30"
+                    style={{ 
+                      backgroundColor: isDarkMode ? 'rgba(31, 41, 55, 0.5)' : 'rgba(248, 250, 252, 0.8)' // Lighter background for light mode
+                    }}
+                  >
+                    {/* Header Row */}
+                    <div className="flex items-center gap-4 mb-4">
+                      <div className="w-16 h-16 bg-green-100 dark:bg-green-900/30 rounded-2xl flex items-center justify-center">
+                        <svg className="w-6 h-6 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
+                        </svg>
+                      </div>
+                      <h3 
+                        className="text-2xl font-semibold text-gray-900 dark:text-white"
+                        style={{ color: isDarkMode ? 'white' : '#111827' }} // Darker text for light mode
+                      >
+                        {japaneseToggle ? '資格' : 'Certifications'}
+                      </h3>
+                    </div>
+                    {/* Certification Items - dynamic from API */}
+                    <div className="flex flex-col gap-6">
+                      {certLoading ? (
+                        <div className="text-gray-500 dark:text-gray-400">Loading...</div>
+                      ) : certifications.length === 0 ? (
+                        <div className="text-gray-500 dark:text-gray-400">No certifications found.</div>
+                      ) : (
+                        certifications.map((cert, idx) => (
+                          <div className="flex gap-4" key={cert._id || idx}>
+                            <div className="w-1 bg-green-500 rounded-full flex-shrink-0"></div>
+                            <div className="flex-1 pl-2 text-left">
+                              <div className="flex items-center gap-3 mb-2">
+                                <h4 
+                                  className="text-xl font-semibold text-gray-900 dark:text-white text-left"
+                                  style={{ color: isDarkMode ? 'white' : '#111827' }}
+                                >
+                                  {japaneseToggle ? cert.jap_title : cert.eng_title}
+                                </h4>
+                                <span className="px-3 py-1 bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-300 rounded-full text-sm font-medium">
+                                  {japaneseToggle ? '認定済み' : 'Certified'}
+                                </span>
+                              </div>
+                              <p 
+                                className="text-green-600 dark:text-green-400 font-medium text-left"
+                                style={{ color: isDarkMode ? '#4ade80' : '#059669' }}
+                              >
+                                {japaneseToggle ? cert.jap_description : cert.eng_description}
+                              </p>
+                              <p 
+                                className="text-gray-600 dark:text-gray-400 text-left"
+                                style={{ color: isDarkMode ? '#9ca3af' : '#4b5563' }}
+                              >
+                                {japaneseToggle ? cert.jap_date : cert.eng_date}
+                              </p>
+                              {cert.validation_id && (
+                                <p className="text-gray-500 dark:text-gray-400 mt-2 text-left" style={{ color: isDarkMode ? '#9ca3af' : '#374151' }}>
+                                  {japaneseToggle ? '認証ID: ' : 'Validation ID: '}{cert.validation_id}
+                                </p>
+                              )}
+                              {cert.image_url && (
+                                <img src={cert.image_url} alt={cert.eng_title} className="mt-2 w-32 h-32 object-contain rounded-lg" />
+                              )}
                             </div>
                           </div>
                         ))
@@ -750,7 +620,7 @@ function Home() {
                     : '2px 2px 8px rgba(0, 0, 0, 0.3), 0 0 20px rgba(20, 184, 166, 0.2)'
                 }}
               >
-                {japaneseToggle ? 'プロジェクト' : 'Projects'} ({projLoading ? '...' : projects.length})
+                {japaneseToggle ? 'プロジェクト' : 'Projects'}
               </h2>
               {projLoading ? (
                 <div className="text-gray-500 dark:text-gray-400 text-center">Loading...</div>
@@ -774,11 +644,6 @@ function Home() {
                         <p className="text-gray-600 dark:text-gray-300 text-center mb-2">
                           {japaneseToggle ? proj.jap_description : proj.eng_description}
                         </p>
-                        <div className="flex gap-2 flex-wrap justify-center mb-2">
-                          {proj.tech_stack && proj.tech_stack.map((tech, tIdx) => (
-                            <span key={tIdx} className="px-2 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 rounded-full text-xs font-medium">{tech}</span>
-                          ))}
-                        </div>
                         <span className="px-3 py-1 rounded-full text-sm font-medium bg-gray-100 text-gray-800 dark:bg-gray-900/30 dark:text-gray-300">
                           {proj.badge}
                         </span>
