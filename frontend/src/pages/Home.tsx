@@ -114,7 +114,10 @@ function Home() {
     fetch('/api/projects')
       .then(res => res.json())
       .then(data => {
-        setProjects(data.projects || data);
+        const projectsData = data.projects || data;
+        // Sort projects by order field
+        const sortedProjects = projectsData.sort((a: Project, b: Project) => a.order - b.order);
+        setProjects(sortedProjects);
         setProjLoading(false);
       })
       .catch(() => setProjLoading(false));
@@ -122,8 +125,8 @@ function Home() {
 
   // Frontend tech stack data
   
-  // Projects data
-  const isEvenNumberOfProjects = projects.length % 2 === 0;
+  // Projects data - determine grid layout based on count
+  const isOddNumberOfProjects = projects.length % 2 !== 0;
 
   // Add navigation handler for project clicks
   const handleProjectClick = (order: number) => {
@@ -627,7 +630,7 @@ function Home() {
               ) : projects.length === 0 ? (
                 <div className="text-gray-500 dark:text-gray-400 text-center">No projects found.</div>
               ) : (
-                <div className={isEvenNumberOfProjects ? "grid grid-cols-2 gap-8" : "grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8"}>
+                <div className={isOddNumberOfProjects ? "grid grid-cols-1 gap-8" : "grid grid-cols-1 sm:grid-cols-2 gap-8"}>
                   {projects.map((proj, idx) => (
                     <BackgroundGradient
                       key={proj._id || idx}

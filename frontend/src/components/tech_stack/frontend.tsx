@@ -57,6 +57,14 @@ const frontendTech: TechItem[] = [
     bgColor: "bg-blue-100 dark:bg-blue-900/30",
     textColor: "text-blue-500"
   },
+  {
+    name: 'NEXT.js',
+    icon: (
+      <img src="/assets/next_js.png" alt="NEXT.js" className="w-6 h-6" />
+    ),
+    bgColor: "bg-blue-100 dark:bg-blue-900/30",
+    textColor: "text-blue-500"
+  },
 ];
 
 export default frontendTech;

@@ -40,7 +40,15 @@ export const databaseTech: TechItem[] = [
     ),
     bgColor: 'bg-orange-100 dark:bg-orange-900/30',
     textColor: 'text-orange-600'
-  }
+  },
+  {
+    name: 'redis',
+    icon: (
+      <img src="/assets/redis.png" alt="redis" className="w-6 h-6" />
+    ),
+    bgColor: 'bg-orange-100 dark:bg-orange-900/30',
+    textColor: 'text-orange-600'
+  },
 ];
 
 export default databaseTech;

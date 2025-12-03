@@ -18,9 +18,9 @@ export const toolsTech: TechItem[] = [
     textColor: 'text-blue-600'
   },
   {
-    name: 'EC2',
+    name: 'AWS',
     icon: (
-      <img src="/assets/ec2.png" alt="EC2" className="w-6 h-6" />
+      <img src="/assets/aws.png" alt="AWS" className="w-6 h-6" />
     ),
     bgColor: 'bg-orange-100 dark:bg-orange-900/30',
     textColor: 'text-orange-600'
@@ -45,6 +45,38 @@ export const toolsTech: TechItem[] = [
     name: 'Linux',
     icon: (
       <img src="/assets/linux.png" alt="Linux" className="w-6 h-6" />
+    ),
+    bgColor: 'bg-gray-100 dark:bg-gray-600',
+    textColor: 'text-gray-700 dark:text-gray-300'
+  },
+  {
+    name: 'Apache Spark',
+    icon: (
+      <img src="/assets/spark.png" alt="Apache Spark" className="w-6 h-6" />
+    ),
+    bgColor: 'bg-gray-100 dark:bg-gray-600',
+    textColor: 'text-gray-700 dark:text-gray-300'
+  },
+  {
+    name: 'Apache Airflow',
+    icon: (
+      <img src="/assets/airflow.png" alt="Apache Airflow" className="w-6 h-6" />
+    ),
+    bgColor: 'bg-gray-100 dark:bg-gray-600',
+    textColor: 'text-gray-700 dark:text-gray-300'
+  },
+  {
+    name: 'Prometheus',
+    icon: (
+      <img src="/assets/prometheus.png" alt="Prometheus" className="w-6 h-6" />
+    ),
+    bgColor: 'bg-gray-100 dark:bg-gray-600',
+    textColor: 'text-gray-700 dark:text-gray-300'
+  },
+  {
+    name: 'Grafana',
+    icon: (
+      <img src="/assets/grafana.png" alt="Grafana" className="w-6 h-6" />
     ),
     bgColor: 'bg-gray-100 dark:bg-gray-600',
     textColor: 'text-gray-700 dark:text-gray-300'

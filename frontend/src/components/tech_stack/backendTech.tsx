@@ -88,7 +88,31 @@ export const backendTech: TechItem[] = [
     ),
     bgColor: 'bg-purple-100 dark:bg-purple-900/30',
     textColor: 'text-purple-600'
-  }
+  },
+  {
+    name: 'GoLang',
+    icon: (
+      <img src="/assets/golang.png" alt="GoLang" className="w-6 h-6" />
+    ),
+    bgColor: 'bg-purple-100 dark:bg-purple-900/30',
+    textColor: 'text-purple-600'
+  },
+  {
+    name: 'Gin',
+    icon: (
+      <img src="/assets/gin.png" alt="Gin" className="w-6 h-6" />
+    ),
+    bgColor: 'bg-purple-100 dark:bg-purple-900/30',
+    textColor: 'text-purple-600'
+  },
+  {
+    name: 'Spring Boot',
+    icon: (
+      <img src="/assets/springboot.png" alt="Spring Boot " className="w-6 h-6" />
+    ),
+    bgColor: 'bg-purple-100 dark:bg-purple-900/30',
+    textColor: 'text-purple-600'
+  },
 ];
 
 export default backendTech;
