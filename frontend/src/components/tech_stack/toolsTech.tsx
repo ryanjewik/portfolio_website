@@ -66,14 +66,6 @@ export const toolsTech: TechItem[] = [
     textColor: 'text-gray-700 dark:text-gray-300'
   },
   {
-    name: 'Prometheus',
-    icon: (
-      <img src="/assets/prometheus.png" alt="Prometheus" className="w-6 h-6" />
-    ),
-    bgColor: 'bg-gray-100 dark:bg-gray-600',
-    textColor: 'text-gray-700 dark:text-gray-300'
-  },
-  {
     name: 'Grafana',
     icon: (
       <img src="/assets/grafana.png" alt="Grafana" className="w-6 h-6" />

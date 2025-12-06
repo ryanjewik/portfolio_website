@@ -41,6 +41,14 @@ export const databaseTech: TechItem[] = [
     bgColor: 'bg-orange-100 dark:bg-orange-900/30',
     textColor: 'text-orange-600'
   },
+    {
+    name: 'Prometheus',
+    icon: (
+      <img src="/assets/prometheus.png" alt="Prometheus" className="w-6 h-6" />
+    ),
+    bgColor: 'bg-gray-100 dark:bg-gray-600',
+    textColor: 'text-gray-700 dark:text-gray-300'
+  },
   {
     name: 'redis',
     icon: (
