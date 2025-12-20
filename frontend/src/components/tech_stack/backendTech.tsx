@@ -113,6 +113,14 @@ export const backendTech: TechItem[] = [
     bgColor: 'bg-purple-100 dark:bg-purple-900/30',
     textColor: 'text-purple-600'
   },
+  {
+    name: 'FastAPI',
+    icon: (
+      <img src="/assets/fastapi.png" alt="FastAPI" className="w-6 h-6" />
+    ),
+    bgColor: 'bg-purple-100 dark:bg-purple-900/30',
+    textColor: 'text-purple-600'
+  },
 ];
 
 export default backendTech;

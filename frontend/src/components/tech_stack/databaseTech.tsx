@@ -50,13 +50,21 @@ export const databaseTech: TechItem[] = [
     textColor: 'text-gray-700 dark:text-gray-300'
   },
   {
-    name: 'redis',
+    name: 'Redis',
     icon: (
-      <img src="/assets/redis.png" alt="redis" className="w-6 h-6" />
+      <img src="/assets/redis.png" alt="Redis" className="w-6 h-6" />
     ),
     bgColor: 'bg-orange-100 dark:bg-orange-900/30',
     textColor: 'text-orange-600'
   },
+  {
+    name: 'Neo4j',
+    icon: (
+      <img src="/assets/neo4j.png" alt="Neo4j" className="w-6 h-6" />
+    ),
+    bgColor: 'bg-green-100 dark:bg-green-900/30',
+    textColor: 'text-green-600'
+  }
 ];
 
 export default databaseTech;
